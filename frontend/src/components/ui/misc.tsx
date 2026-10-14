@@ -7,7 +7,7 @@ export function Avatar({ name, className }: { name: string; className?: string }
   return (
     <span
       className={cn(
-        "flex size-9 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-brand-500 to-violet-500 text-xs font-semibold text-white",
+        "flex size-9 shrink-0 items-center justify-center rounded-full bg-brand-50 text-xs font-semibold text-brand-700 ring-1 ring-brand-100",
         className,
       )}
       aria-hidden="true"
@@ -22,7 +22,7 @@ export function ProgressBar({ value, className }: { value: number; className?: s
   return (
     <div className={cn("h-2 w-full overflow-hidden rounded-full bg-slate-100", className)}>
       <div
-        className="h-full rounded-full bg-linear-to-r from-brand-500 to-emerald-500 transition-[width] duration-500"
+        className="h-full rounded-full bg-brand-600 transition-[width] duration-500"
         style={{ width: `${clamped}%` }}
       />
     </div>

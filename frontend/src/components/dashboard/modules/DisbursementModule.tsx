@@ -49,11 +49,11 @@ function DisburseModal({ loan, onClose, onDisbursed }: { loan: Loan; onClose: ()
       }
     >
       <div className="space-y-5">
-        <div className="rounded-2xl bg-linear-to-br from-brand-600 to-violet-600 p-5 text-white">
-          <p className="text-sm text-white/80">Amount to release</p>
-          <p className="mt-1 text-3xl font-bold tabular-nums">{formatCurrency(loan.principal)}</p>
-          <p className="mt-3 text-sm text-white/80">
-            to <span className="font-semibold text-white">{loan.applicant.fullName}</span> · PAN {loan.applicant.pan}
+        <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
+          <p className="text-sm text-slate-500">Amount to release</p>
+          <p className="mt-1 text-3xl font-bold text-slate-900 tabular-nums">{formatCurrency(loan.principal)}</p>
+          <p className="mt-3 text-sm text-slate-500">
+            to <span className="font-semibold text-slate-900">{loan.applicant.fullName}</span> · PAN {loan.applicant.pan}
           </p>
         </div>
         <Alert tone="info">

@@ -36,7 +36,7 @@ export function Modal({ open, onClose, title, description, footer, size = "md", 
 
   return createPortal(
     <div className="fixed inset-0 z-50 flex items-end justify-center p-0 sm:items-center sm:p-6">
-      <div className="absolute inset-0 animate-fade-in bg-slate-950/50 backdrop-blur-[2px]" onClick={onClose} />
+      <div className="absolute inset-0 animate-fade-in bg-slate-950/50" onClick={onClose} />
       <div
         role="dialog"
         aria-modal="true"

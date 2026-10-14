@@ -11,10 +11,7 @@ const POINTS = [
 export default function AuthLayout({ children }: { children: ReactNode }) {
   return (
     <div className="grid min-h-screen lg:grid-cols-[1fr_1.1fr]">
-      <aside className="relative hidden overflow-hidden bg-slate-950 p-12 lg:flex lg:flex-col lg:justify-between">
-        <div className="absolute -top-40 -left-32 size-[28rem] rounded-full bg-brand-600/40 blur-3xl" />
-        <div className="absolute -right-24 -bottom-40 size-[26rem] rounded-full bg-violet-600/30 blur-3xl" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgb(255_255_255/0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/0.04)_1px,transparent_1px)] bg-[size:44px_44px]" />
+      <aside className="relative hidden overflow-hidden bg-brand-950 p-12 lg:flex lg:flex-col lg:justify-between">
 
         <Logo inverted className="relative" />
 
@@ -25,14 +22,14 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
           <ul className="mt-8 space-y-4">
             {POINTS.map((point) => (
               <li key={point} className="flex items-center gap-3 text-slate-300">
-                <CheckCircle2 className="size-5 text-emerald-400" />
+                <CheckCircle2 className="size-5 text-slate-400" />
                 {point}
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="relative grid max-w-md grid-cols-3 gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+        <div className="relative grid max-w-md grid-cols-3 gap-4 rounded-xl border border-white/10 p-5">
           {[
             ["₹5L", "Max loan"],
             ["12%", "Flat p.a."],

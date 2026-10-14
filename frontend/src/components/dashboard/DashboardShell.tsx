@@ -48,7 +48,7 @@ function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
                 <span
                   className={cn(
                     "flex size-8 items-center justify-center rounded-lg transition",
-                    active ? "bg-brand-600 text-white shadow-sm shadow-brand-600/30" : "bg-slate-100 text-slate-500 group-hover:bg-white",
+                    active ? "bg-brand-600 text-white" : "bg-slate-100 text-slate-500 group-hover:bg-white",
                   )}
                 >
                   <Icon className="size-4" />
@@ -66,9 +66,9 @@ function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
       </div>
       {user && (
         <div className="mt-auto p-4">
-          <div className="rounded-xl bg-linear-to-br from-slate-900 to-slate-800 p-4 text-white">
-            <p className="text-xs text-slate-400">Signed in as</p>
-            <p className="mt-0.5 text-sm font-semibold">{ROLE_LABELS[user.role]}</p>
+          <div className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3">
+            <p className="text-xs text-slate-500">Signed in as</p>
+            <p className="mt-0.5 text-sm font-semibold text-slate-900">{ROLE_LABELS[user.role]}</p>
           </div>
         </div>
       )}

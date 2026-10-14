@@ -5,7 +5,7 @@ export function LogoMark({ className }: { className?: string }) {
   return (
     <span
       className={cn(
-        "flex size-9 items-center justify-center rounded-xl bg-linear-to-br from-brand-500 to-brand-700 shadow-sm shadow-brand-600/30",
+        "flex size-9 items-center justify-center rounded-lg bg-brand-700",
         className,
       )}
     >
@@ -22,7 +22,7 @@ export function Logo({ href = "/", inverted = false, className }: { href?: strin
     <Link href={href} className={cn("flex items-center gap-2.5", className)}>
       <LogoMark />
       <span className={cn("text-lg font-bold tracking-tight", inverted ? "text-white" : "text-slate-900")}>
-        Loan<span className={inverted ? "text-brand-300" : "text-brand-600"}>Flow</span>
+        Loan<span className={inverted ? "text-slate-300" : "text-brand-700"}>Flow</span>
       </span>
     </Link>
   );

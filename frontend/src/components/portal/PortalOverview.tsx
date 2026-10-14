@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, FileClock, History, Sparkles } from "lucide-react";
+import { ArrowRight, FileClock, FileText, History } from "lucide-react";
 import useSWR from "swr";
 import { LoanProgress } from "@/components/loan/LoanProgress";
 import { Alert } from "@/components/ui/Alert";
@@ -29,7 +29,7 @@ function ActiveLoanCard({ loan }: { loan: Loan }) {
 
   return (
     <Card className="overflow-hidden">
-      <div className="border-b border-slate-100 bg-linear-to-br from-brand-50/80 via-white to-white px-5 py-5 sm:px-6">
+      <div className="border-b border-slate-100 px-5 py-5 sm:px-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <p className="text-xs font-semibold tracking-wider text-slate-500 uppercase">Current loan</p>
@@ -73,12 +73,11 @@ function ActiveLoanCard({ loan }: { loan: Loan }) {
 
 function StartApplicationCard({ hasProfile, hasPastLoans }: { hasProfile: boolean; hasPastLoans: boolean }) {
   return (
-    <Card className="relative overflow-hidden">
-      <div className="absolute -top-16 -right-16 size-56 rounded-full bg-brand-100/60 blur-2xl" />
-      <CardBody className="relative flex flex-col items-start gap-6 py-8 sm:flex-row sm:items-center sm:justify-between">
+    <Card>
+      <CardBody className="flex flex-col items-start gap-6 py-8 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-start gap-4">
-          <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-brand-600 text-white shadow-lg shadow-brand-600/25">
-            <Sparkles className="size-6" />
+          <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700 ring-1 ring-brand-100">
+            <FileText className="size-6" />
           </span>
           <div>
             <h2 className="text-lg font-semibold text-slate-900">
@@ -152,7 +151,7 @@ export function PortalOverview() {
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-          Hello{user ? `, ${user.name.split(" ")[0]}` : ""} 👋
+          Welcome{user ? `, ${user.name.split(" ")[0]}` : ""}
         </h1>
         <p className="mt-1 text-slate-500">Here’s an overview of your loans.</p>
       </div>

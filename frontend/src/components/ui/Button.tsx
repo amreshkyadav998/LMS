@@ -8,13 +8,13 @@ type Size = "sm" | "md" | "lg";
 
 const VARIANT_CLASSES: Record<Variant, string> = {
   primary:
-    "bg-brand-600 text-white shadow-sm shadow-brand-600/20 hover:bg-brand-700 focus-visible:ring-brand-200",
+    "bg-brand-600 text-white shadow-sm hover:bg-brand-700 focus-visible:ring-brand-200",
   secondary:
     "bg-white text-slate-700 ring-1 ring-inset ring-slate-200 shadow-sm hover:bg-slate-50 hover:text-slate-900 focus-visible:ring-brand-200",
   ghost: "text-slate-600 hover:bg-slate-100 hover:text-slate-900 focus-visible:ring-slate-200",
-  danger: "bg-rose-600 text-white shadow-sm shadow-rose-600/20 hover:bg-rose-700 focus-visible:ring-rose-200",
+  danger: "bg-rose-600 text-white shadow-sm hover:bg-rose-700 focus-visible:ring-rose-200",
   success:
-    "bg-emerald-600 text-white shadow-sm shadow-emerald-600/20 hover:bg-emerald-700 focus-visible:ring-emerald-200",
+    "bg-emerald-600 text-white shadow-sm hover:bg-emerald-700 focus-visible:ring-emerald-200",
 };
 
 const SIZE_CLASSES: Record<Size, string> = {

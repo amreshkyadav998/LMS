@@ -52,18 +52,16 @@ export default function HomePage() {
 
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_15%_0%,var(--color-brand-100),transparent_70%),radial-gradient(50%_50%_at_100%_30%,#ede9fe,transparent_70%)]" />
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgb(15_23_42/0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgb(15_23_42/0.04)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]" />
+        <section className="bg-slate-50">
 
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-24">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold text-brand-700 shadow-sm ring-1 ring-brand-100">
+              <span className="inline-flex items-center gap-2 rounded-md bg-white px-3 py-1 text-xs font-semibold text-slate-600 ring-1 ring-slate-200">
                 <ShieldCheck className="size-3.5" /> Transparent pricing · No hidden charges
               </span>
-              <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+              <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
                 Personal loans,{" "}
-                <span className="bg-linear-to-r from-brand-600 to-violet-600 bg-clip-text text-transparent">
+                <span className="text-brand-700">
                   approved in minutes
                 </span>
               </h1>
@@ -81,7 +79,7 @@ export default function HomePage() {
               </div>
               <dl className="mt-12 grid max-w-lg grid-cols-3 gap-4">
                 {HIGHLIGHTS.map(({ icon: Icon, label, value }) => (
-                  <div key={label} className="rounded-2xl bg-white/70 p-4 ring-1 ring-slate-200/70 backdrop-blur">
+                  <div key={label} className="rounded-xl bg-white p-4 ring-1 ring-slate-200">
                     <Icon className="size-5 text-brand-600" />
                     <dt className="mt-3 text-xs font-medium text-slate-500">{label}</dt>
                     <dd className="mt-0.5 text-sm font-bold text-slate-900">{value}</dd>
@@ -103,12 +101,12 @@ export default function HomePage() {
             </div>
             <ol className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {STEPS.map(({ icon: Icon, title, text }, index) => (
-                <li key={title} className="relative rounded-2xl border border-slate-200/80 bg-slate-50/60 p-6">
-                  <span className="absolute top-6 right-6 text-4xl font-extrabold text-slate-200/80">0{index + 1}</span>
-                  <span className="flex size-11 items-center justify-center rounded-xl bg-brand-600 text-white shadow-md shadow-brand-600/25">
+                <li key={title} className="rounded-xl border border-slate-200 bg-white p-6">
+                                    <span className="flex size-11 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
                     <Icon className="size-5" />
                   </span>
-                  <h3 className="mt-5 font-semibold text-slate-900">{title}</h3>
+                  <p className="mt-5 text-xs font-semibold text-slate-400">Step {index + 1}</p>
+                  <h3 className="mt-1 font-semibold text-slate-900">{title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{text}</p>
                 </li>
               ))}
@@ -119,8 +117,7 @@ export default function HomePage() {
         {/* Eligibility */}
         <section id="eligibility" className="scroll-mt-16 py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="relative overflow-hidden rounded-3xl bg-slate-900 px-6 py-12 sm:px-12 lg:flex lg:items-center lg:justify-between lg:gap-12">
-              <div className="absolute -top-24 -right-24 size-72 rounded-full bg-brand-600/30 blur-3xl" />
+            <div className="rounded-2xl bg-brand-950 px-6 py-12 sm:px-12 lg:flex lg:items-center lg:justify-between lg:gap-12">
               <div className="relative max-w-xl">
                 <h2 className="text-3xl font-bold tracking-tight text-white">Who can apply?</h2>
                 <p className="mt-3 text-slate-300">
@@ -129,7 +126,7 @@ export default function HomePage() {
                 <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                   {CRITERIA.map((item) => (
                     <li key={item} className="flex items-center gap-2.5 text-sm font-medium text-slate-200">
-                      <BadgeCheck className="size-5 shrink-0 text-emerald-400" />
+                      <BadgeCheck className="size-5 shrink-0 text-brand-300" />
                       {item}
                     </li>
                   ))}

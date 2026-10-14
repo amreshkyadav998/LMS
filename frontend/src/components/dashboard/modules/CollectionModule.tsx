@@ -63,7 +63,7 @@ function RecordPaymentForm({ loan, onRecorded }: { loan: Loan; onRecorded: () =>
         body: { utr, amount: Number(amount), paymentDate },
       });
       if (result.loan.status === "CLOSED") {
-        toast.success("Final payment received — loan closed automatically 🎉");
+        toast.success("Final payment received. Loan closed automatically.");
       } else {
         toast.success(`Payment of ${formatCurrency(result.payment.amount)} recorded`);
       }

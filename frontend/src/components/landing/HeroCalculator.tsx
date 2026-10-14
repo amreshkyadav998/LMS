@@ -10,7 +10,7 @@ export function HeroCalculator() {
   const [tenureDays, setTenureDays] = useState(180);
 
   return (
-    <div className="relative rounded-3xl border border-white/60 bg-white/90 p-6 shadow-elevated backdrop-blur sm:p-8">
+    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
       <div className="mb-6 flex items-center justify-between">
         <div>
           <p className="text-xs font-semibold tracking-wider text-brand-600 uppercase">Loan calculator</p>
