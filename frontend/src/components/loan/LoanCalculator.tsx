@@ -100,14 +100,14 @@ export function QuoteSummary({ principal, tenureDays }: { principal: number; ten
   const quote = calculateLoanQuote(principal, tenureDays);
 
   return (
-    <div className="rounded-2xl bg-cream p-5 ring-1 ring-stone-200/70 ring-inset">
+    <div className="rounded-2xl bg-cream p-4 ring-1 ring-stone-200/70 ring-inset sm:p-5">
       <div className="divide-y divide-stone-200/70">
         <SummaryRow label="Principal amount" value={formatCurrency(quote.principal)} />
         <SummaryRow label="Interest rate" value={`${quote.interestRate}% p.a. (simple)`} />
         <SummaryRow label="Tenure" value={`${quote.tenureDays} days`} />
         <SummaryRow label="Interest payable" value={formatCurrency(quote.simpleInterest)} />
       </div>
-      <div className="mt-3 flex items-center justify-between gap-4 rounded-xl bg-white px-4 py-3.5 shadow-sm ring-1 ring-stone-200/70">
+      <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 rounded-xl bg-white px-4 py-3.5 shadow-sm ring-1 ring-stone-200/70">
         <span className="text-sm font-semibold whitespace-nowrap text-stone-700">Total repayment</span>
         <span className="text-lg font-bold whitespace-nowrap text-brand-700 tabular-nums sm:text-xl">{formatCurrency(quote.totalRepayment)}</span>
       </div>
