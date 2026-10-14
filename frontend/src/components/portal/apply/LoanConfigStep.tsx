@@ -49,9 +49,9 @@ export function LoanConfigStep({ profile, onApplied, onBack }: LoanConfigStepPro
             onPrincipalChange={setPrincipal}
             onTenureChange={setTenureDays}
           />
-          <div className="rounded-xl bg-cream p-4 text-sm ring-1 ring-slate-200/70 ring-inset">
-            <p className="mb-2 font-semibold text-slate-700">Applying as</p>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-slate-600">
+          <div className="rounded-xl bg-cream p-4 text-sm ring-1 ring-stone-200/70 ring-inset">
+            <p className="mb-2 font-semibold text-stone-700">Applying as</p>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-stone-600">
               <span>{profile.fullName}</span>
               <span className="font-mono">{profile.pan}</span>
               <span>{EMPLOYMENT_MODE_LABELS[profile.employmentMode]}</span>
@@ -62,7 +62,7 @@ export function LoanConfigStep({ profile, onApplied, onBack }: LoanConfigStepPro
         <QuoteSummary principal={principal} tenureDays={tenureDays} />
       </div>
 
-      <div className="flex items-center justify-between border-t border-slate-100 pt-6">
+      <div className="flex items-center justify-between border-t border-stone-100 pt-6">
         <Button variant="ghost" onClick={onBack} icon={<ArrowLeft className="size-4" />}>
           Back
         </Button>

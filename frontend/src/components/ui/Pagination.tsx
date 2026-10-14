@@ -16,11 +16,11 @@ export function Pagination({ page, totalPages, total, limit, onPageChange }: Pag
   const to = Math.min(page * limit, total);
 
   return (
-    <div className="flex items-center justify-between gap-4 border-t border-slate-100 px-5 py-3 sm:px-6">
-      <p className="text-xs text-slate-500 sm:text-sm">
-        Showing <span className="font-semibold text-slate-700">{from}</span>–
-        <span className="font-semibold text-slate-700">{to}</span> of{" "}
-        <span className="font-semibold text-slate-700">{total}</span>
+    <div className="flex items-center justify-between gap-4 border-t border-stone-100 px-5 py-3 sm:px-6">
+      <p className="text-xs text-stone-500 sm:text-sm">
+        Showing <span className="font-semibold text-stone-700">{from}</span>–
+        <span className="font-semibold text-stone-700">{to}</span> of{" "}
+        <span className="font-semibold text-stone-700">{total}</span>
       </p>
       <div className="flex items-center gap-2">
         <Button
@@ -31,7 +31,7 @@ export function Pagination({ page, totalPages, total, limit, onPageChange }: Pag
           icon={<ChevronLeft className="size-4" />}
           aria-label="Previous page"
         />
-        <span className="text-xs font-medium text-slate-600 tabular-nums">
+        <span className="text-xs font-medium text-stone-600 tabular-nums">
           {page} / {totalPages}
         </span>
         <Button

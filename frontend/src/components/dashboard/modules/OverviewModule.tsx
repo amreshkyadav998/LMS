@@ -10,16 +10,15 @@ import { LoanStatusBadge } from "@/components/ui/Badge";
 import { Card, CardHeader } from "@/components/ui/Card";
 import { PageLoader } from "@/components/ui/Spinner";
 import { StatCard } from "@/components/ui/StatCard";
-import { Table, TBody, TD, TH, THead, TR } from "@/components/ui/Table";
 import { fetcher } from "@/lib/api";
 import { cn } from "@/lib/cn";
 import { formatCompactCurrency, formatCurrency, formatDateTime } from "@/lib/format";
 import type { AdminOverview, LoanStatus } from "@/types";
 
 const PIPELINE: { status: LoanStatus; label: string; href?: string; bar: string }[] = [
-  { status: "APPLIED", label: "Awaiting sanction", href: "/dashboard/sanction", bar: "bg-sky-500" },
+  { status: "APPLIED", label: "Awaiting sanction", href: "/dashboard/sanction", bar: "bg-stone-400" },
   { status: "SANCTIONED", label: "Awaiting disbursement", href: "/dashboard/disbursement", bar: "bg-amber-500" },
-  { status: "DISBURSED", label: "In collection", href: "/dashboard/collection", bar: "bg-violet-500" },
+  { status: "DISBURSED", label: "In collection", href: "/dashboard/collection", bar: "bg-brand-600" },
   { status: "CLOSED", label: "Closed", href: "/dashboard/collection", bar: "bg-emerald-500" },
   { status: "REJECTED", label: "Rejected", bar: "bg-rose-500" },
 ];
@@ -36,28 +35,25 @@ export function OverviewModule() {
     <>
       <PageHeader title="Overview" description="A snapshot of the entire lending portfolio." />
 
-      <div className="grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-5">
-        <StatCard label="Total applications" value={data.totalLoans} icon={FileStack} tone="brand" />
-        <StatCard label="Open leads" value={data.openLeads} icon={Users} tone="slate" hint="Signed up, not applied" />
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 2xl:grid-cols-5">
+        <StatCard label="Total applications" value={data.totalLoans} icon={FileStack} />
+        <StatCard label="Open leads" value={data.openLeads} icon={Users} hint="Signed up, not applied" />
         <StatCard
           label="Disbursed"
           value={formatCompactCurrency(data.portfolio.disbursedPrincipal)}
           icon={Banknote}
-          tone="violet"
           hint="Principal released"
         />
         <StatCard
           label="Collected"
           value={formatCompactCurrency(data.portfolio.collected)}
           icon={PiggyBank}
-          tone="emerald"
           hint="Repayments received"
         />
         <StatCard
           label="Outstanding"
           value={formatCompactCurrency(data.portfolio.outstanding)}
           icon={HandCoins}
-          tone="amber"
           hint="Due on active loans"
         />
       </div>
@@ -71,18 +67,18 @@ export function OverviewModule() {
               const content = (
                 <>
                     <div className="mb-2 flex items-center justify-between text-sm">
-                      <span className="flex items-center gap-2 font-medium text-slate-700">
+                      <span className="flex items-center gap-2 font-medium text-stone-700">
                         <LoanStatusBadge status={status} />
-                        <span className="hidden text-slate-500 sm:inline">{label}</span>
+                        <span className="hidden text-stone-500 sm:inline">{label}</span>
                       </span>
                       <span className="flex items-center gap-1 font-bold text-black tabular-nums">
                         {count}
                         {href && (
-                          <ArrowRight className="size-3.5 text-slate-300 transition group-hover:translate-x-0.5 group-hover:text-brand-500" />
+                          <ArrowRight className="size-3.5 text-stone-300 transition group-hover:translate-x-0.5 group-hover:text-brand-500" />
                         )}
                       </span>
                     </div>
-                    <div className="h-1.5 overflow-hidden rounded-full bg-slate-100">
+                    <div className="h-1.5 overflow-hidden rounded-full bg-stone-100">
                       <div className={cn("h-full rounded-full", bar)} style={{ width: `${(count / maxCount) * 100}%` }} />
                     </div>
                 </>
@@ -106,32 +102,26 @@ export function OverviewModule() {
         <Card>
           <CardHeader title="Recent activity" description="Most recently updated loans." />
           {data.recentLoans.length === 0 ? (
-            <p className="px-6 py-12 text-center text-sm text-slate-500">No loan activity yet.</p>
+            <p className="px-6 py-12 text-center text-sm text-stone-500">No loan activity yet.</p>
           ) : (
-            <Table>
-              <THead>
-                <tr>
-                  <TH>Borrower</TH>
-                  <TH>Amount</TH>
-                  <TH>Status</TH>
-                  <TH>Updated</TH>
-                </tr>
-              </THead>
-              <TBody>
-                {data.recentLoans.map((loan) => (
-                  <TR key={loan._id}>
-                    <TD>
-                      <ApplicantCell loan={loan} />
-                    </TD>
-                    <TD className="font-semibold text-black">{formatCurrency(loan.principal)}</TD>
-                    <TD>
+            <ul className="divide-y divide-stone-100">
+              {data.recentLoans.map((loan) => (
+                <li key={loan._id} className="flex items-center justify-between gap-4 px-5 py-3.5 sm:px-6">
+                  <div className="min-w-0">
+                    <ApplicantCell loan={loan} />
+                  </div>
+                  <div className="flex shrink-0 flex-col items-end gap-1">
+                    <span className="flex items-center gap-2">
+                      <span className="hidden text-sm font-semibold text-black tabular-nums sm:inline">
+                        {formatCurrency(loan.principal)}
+                      </span>
                       <LoanStatusBadge status={loan.status} />
-                    </TD>
-                    <TD className="text-slate-500">{formatDateTime(loan.updatedAt)}</TD>
-                  </TR>
-                ))}
-              </TBody>
-            </Table>
+                    </span>
+                    <span className="text-xs text-stone-500">{formatDateTime(loan.updatedAt)}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
           )}
         </Card>
       </div>

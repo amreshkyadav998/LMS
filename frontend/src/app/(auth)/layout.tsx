@@ -22,8 +22,8 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
           </h2>
           <ul className="mt-8 space-y-4">
             {POINTS.map((point) => (
-              <li key={point} className="flex items-center gap-3 text-slate-300">
-                <CheckCircle2 className="size-5 text-slate-400" />
+              <li key={point} className="flex items-center gap-3 text-stone-300">
+                <CheckCircle2 className="size-5 text-stone-400" />
                 {point}
               </li>
             ))}
@@ -38,7 +38,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
           ].map(([value, label]) => (
             <div key={label}>
               <p className="text-xl font-bold text-white">{value}</p>
-              <p className="text-xs text-slate-400">{label}</p>
+              <p className="text-xs text-stone-400">{label}</p>
             </div>
           ))}
         </div>

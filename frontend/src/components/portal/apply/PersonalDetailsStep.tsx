@@ -192,7 +192,7 @@ export function PersonalDetailsStep({ profile, onComplete }: PersonalDetailsStep
       </div>
 
       <fieldset>
-        <legend className="mb-2 text-sm font-medium text-slate-700">Employment mode</legend>
+        <legend className="mb-2 text-sm font-medium text-stone-700">Employment mode</legend>
         <div className="grid gap-3 sm:grid-cols-3">
           {EMPLOYMENT_OPTIONS.map(({ value, icon: Icon }) => {
             const selected = form.employmentMode === value;
@@ -201,7 +201,7 @@ export function PersonalDetailsStep({ profile, onComplete }: PersonalDetailsStep
                 key={value}
                 className={cn(
                   "flex cursor-pointer items-center gap-3 rounded-xl p-4 ring-1 transition ring-inset",
-                  selected ? "bg-brand-50/70 ring-2 ring-brand-600" : "bg-white ring-slate-200 hover:ring-slate-300",
+                  selected ? "bg-brand-50/70 ring-2 ring-brand-600" : "bg-white ring-stone-200 hover:ring-stone-300",
                 )}
               >
                 <input
@@ -215,12 +215,12 @@ export function PersonalDetailsStep({ profile, onComplete }: PersonalDetailsStep
                 <span
                   className={cn(
                     "flex size-9 items-center justify-center rounded-lg",
-                    selected ? "bg-brand-600 text-white" : "bg-slate-100 text-slate-500",
+                    selected ? "bg-brand-600 text-white" : "bg-stone-100 text-stone-500",
                   )}
                 >
                   <Icon className="size-[18px]" />
                 </span>
-                <span className="text-sm font-semibold text-slate-800">{EMPLOYMENT_MODE_LABELS[value]}</span>
+                <span className="text-sm font-semibold text-stone-800">{EMPLOYMENT_MODE_LABELS[value]}</span>
               </label>
             );
           })}
@@ -228,7 +228,7 @@ export function PersonalDetailsStep({ profile, onComplete }: PersonalDetailsStep
         {errors.employmentMode && <p className="mt-1.5 text-xs font-medium text-rose-600">{errors.employmentMode}</p>}
       </fieldset>
 
-      <div className="flex justify-end border-t border-slate-100 pt-6">
+      <div className="flex justify-end border-t border-stone-100 pt-6">
         <Button type="submit" size="lg" loading={submitting}>
           Check eligibility & continue <ArrowRight className="size-4" />
         </Button>

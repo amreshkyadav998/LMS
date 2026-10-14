@@ -40,12 +40,12 @@ function ApplicationSubmitted({ loan }: { loan: Loan }) {
           <CheckCircle2 className="size-9 text-emerald-500" />
         </span>
         <h1 className="mt-6 text-2xl font-bold text-black">Application submitted!</h1>
-        <p className="mx-auto mt-2 max-w-sm text-slate-500">
+        <p className="mx-auto mt-2 max-w-sm text-stone-500">
           Your request for <span className="font-semibold text-black">{formatCurrency(loan.principal)}</span> over{" "}
           {loan.tenureDays} days is now with our sanction team.
         </p>
-        <p className="mt-4 text-sm text-slate-500">
-          Reference: <span className="font-mono font-semibold text-slate-700">{loan._id.slice(-8).toUpperCase()}</span>
+        <p className="mt-4 text-sm text-stone-500">
+          Reference: <span className="font-mono font-semibold text-stone-700">{loan._id.slice(-8).toUpperCase()}</span>
         </p>
         <ButtonLink href="/portal" size="lg" className="mt-8">
           Track my application <ArrowRight className="size-4" />
@@ -68,18 +68,18 @@ function Wizard({ overview, onApplied }: { overview: BorrowerOverview; onApplied
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-bold tracking-tight text-black sm:text-3xl">Loan application</h1>
-        <p className="mt-1 text-slate-500">Complete these three steps to submit your application.</p>
+        <p className="mt-1 text-stone-500">Complete these three steps to submit your application.</p>
       </div>
 
       <Stepper steps={STEPS} current={step} />
 
       <Card>
-        <div className="border-b border-slate-100 px-5 py-5 sm:px-8">
+        <div className="border-b border-stone-100 px-5 py-5 sm:px-8">
           <p className="text-xs font-semibold tracking-wider text-brand-600 uppercase">
             Step {step + 1} of {STEPS.length}
           </p>
           <h2 className="mt-1 text-lg font-semibold text-black">{STEP_HEADINGS[step].title}</h2>
-          <p className="mt-0.5 text-sm text-slate-500">{STEP_HEADINGS[step].text}</p>
+          <p className="mt-0.5 text-sm text-stone-500">{STEP_HEADINGS[step].text}</p>
         </div>
         <CardBody className="sm:px-8 sm:py-7">
           {step === 0 && (
@@ -133,7 +133,7 @@ export function ApplyWizard() {
       <Card className="mx-auto max-w-xl text-center">
         <CardBody className="py-12">
           <h1 className="text-xl font-bold text-black">You already have a loan in progress</h1>
-          <p className="mt-2 text-slate-500">You can apply for a new loan once your current loan is closed.</p>
+          <p className="mt-2 text-stone-500">You can apply for a new loan once your current loan is closed.</p>
           <ButtonLink href="/portal" className="mt-6">
             View my loan <ArrowRight className="size-4" />
           </ButtonLink>

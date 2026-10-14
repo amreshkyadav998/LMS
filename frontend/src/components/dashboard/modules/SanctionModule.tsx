@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, ClipboardCheck, Eye, XCircle } from "lucide-react";
+import { CheckCircle2, ClipboardCheck, XCircle } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { DataTable, type Column } from "@/components/dashboard/DataTable";
@@ -108,7 +108,7 @@ export function SanctionModule() {
       cell: (loan) => (
         <div>
           <p className="font-medium text-black">{formatCurrency(loan.applicant.monthlySalary)}</p>
-          <p className="text-xs text-slate-500">{EMPLOYMENT_MODE_LABELS[loan.applicant.employmentMode]}</p>
+          <p className="text-xs text-stone-500">{EMPLOYMENT_MODE_LABELS[loan.applicant.employmentMode]}</p>
         </div>
       ),
     },
@@ -117,25 +117,24 @@ export function SanctionModule() {
       cell: (loan) => (
         <div>
           <p className="font-semibold text-black">{formatCurrency(loan.principal)}</p>
-          <p className="text-xs text-slate-500">{loan.tenureDays} days</p>
+          <p className="text-xs text-stone-500">{loan.tenureDays} days</p>
         </div>
       ),
     },
-    { header: "Total repayment", cell: (loan) => formatCurrency(loan.totalRepayment) },
     { header: "Applied on", cell: (loan) => formatDate(loan.createdAt) },
     {
       header: "Actions",
+      isAction: true,
       className: "text-right",
       cell: (loan) => (
         <div className="flex justify-end gap-2">
-          <Button variant="secondary" size="sm" icon={<Eye className="size-3.5" />} onClick={() => setSelected(loan)}>
+          <Button variant="secondary" size="sm" onClick={() => setSelected(loan)}>
             Review
           </Button>
           <Button
             variant="success"
             size="sm"
             loading={approvingId === loan._id}
-            icon={<CheckCircle2 className="size-3.5" />}
             onClick={() => approve(loan)}
           >
             Approve

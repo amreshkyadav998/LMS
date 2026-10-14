@@ -39,23 +39,23 @@ export function LoanProgress({ loan }: { loan: Loan }) {
                     ? "bg-rose-600 text-white"
                     : done
                       ? "bg-brand-600 text-white"
-                      : "bg-slate-100 text-slate-400",
+                      : "bg-stone-100 text-stone-400",
                   index === currentIndex && !isRejectedStep && loan.status !== "CLOSED" && "ring-brand-100",
                 )}
               >
                 {isRejectedStep ? <X className="size-4" /> : done ? <Check className="size-4" /> : index + 1}
               </span>
-              <span className={cn("mt-2 text-xs font-semibold", done ? "text-black" : "text-slate-400")}>
+              <span className={cn("mt-2 text-xs font-semibold", done ? "text-black" : "text-stone-400")}>
                 {step.label}
               </span>
-              <span className="text-[11px] whitespace-nowrap text-slate-400">{date && done ? formatDate(date) : "—"}</span>
+              <span className="text-[11px] whitespace-nowrap text-stone-400">{date && done ? formatDate(date) : "—"}</span>
             </li>
             {!isLast && (
               <li
                 aria-hidden="true"
                 className={cn(
                   "-mx-6 mt-[15px] h-0.5 flex-1 rounded-full",
-                  index < currentIndex ? "bg-brand-600" : "bg-slate-200",
+                  index < currentIndex ? "bg-brand-600" : "bg-stone-200",
                 )}
               />
             )}

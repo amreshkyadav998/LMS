@@ -5,7 +5,7 @@ import { cn } from "@/lib/cn";
 type Tone = "info" | "success" | "warning" | "error";
 
 const TONES: Record<Tone, { classes: string; icon: typeof Info }> = {
-  info: { classes: "bg-sky-50 text-sky-800 ring-sky-200", icon: Info },
+  info: { classes: "bg-brand-50 text-brand-900 ring-brand-200", icon: Info },
   success: { classes: "bg-emerald-50 text-emerald-800 ring-emerald-200", icon: CheckCircle2 },
   warning: { classes: "bg-amber-50 text-amber-800 ring-amber-200", icon: AlertTriangle },
   error: { classes: "bg-rose-50 text-rose-800 ring-rose-200", icon: XCircle },

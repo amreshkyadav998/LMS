@@ -2,7 +2,7 @@
 
 import { ExternalLink, FileText } from "lucide-react";
 import type { ReactNode } from "react";
-import { LoanStatusBadge, LOAN_STATUS_TONES } from "@/components/ui/Badge";
+import { LoanStatusBadge, LOAN_STATUS_TONES, TONE_CLASSES } from "@/components/ui/Badge";
 import { Modal } from "@/components/ui/Modal";
 import { Avatar, DetailList } from "@/components/ui/misc";
 import { EMPLOYMENT_MODE_LABELS, LOAN_STATUS_LABELS, ROLE_LABELS } from "@/lib/constants";
@@ -17,7 +17,7 @@ export function ApplicantCell({ loan }: { loan: Loan }) {
       <Avatar name={loan.applicant.fullName} className="size-8 text-[11px]" />
       <div className="min-w-0">
         <p className="truncate font-semibold text-black">{loan.applicant.fullName}</p>
-        <p className="truncate text-xs text-slate-500">{loan.borrower?.email}</p>
+        <p className="truncate text-xs text-stone-500">{loan.borrower?.email}</p>
       </div>
     </div>
   );
@@ -32,17 +32,6 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
   );
 }
 
-const DOT_CLASSES = {
-  slate: "bg-slate-400",
-  brand: "bg-brand-500",
-  blue: "bg-sky-500",
-  amber: "bg-amber-500",
-  emerald: "bg-emerald-500",
-  rose: "bg-rose-500",
-  violet: "bg-violet-500",
-  teal: "bg-teal-500",
-} as const;
-
 function StatusTimeline({ loan }: { loan: Loan }) {
   return (
     <ol className="space-y-4">
@@ -50,18 +39,18 @@ function StatusTimeline({ loan }: { loan: Loan }) {
         const actor = typeof change.changedBy === "object" ? change.changedBy : undefined;
         return (
           <li key={`${change.status}-${index}`} className="relative flex gap-3">
-            <span className={cn("mt-1.5 size-2.5 shrink-0 rounded-full", DOT_CLASSES[LOAN_STATUS_TONES[change.status]])} />
+            <span className={cn("mt-1.5 size-2.5 shrink-0 rounded-full", TONE_CLASSES[LOAN_STATUS_TONES[change.status]].dot)} />
             <div className="min-w-0 text-sm">
               <p className="font-semibold text-black">
                 {LOAN_STATUS_LABELS[change.status]}
-                <span className="ml-2 font-normal text-slate-400">{formatDateTime(change.changedAt)}</span>
+                <span className="ml-2 font-normal text-stone-400">{formatDateTime(change.changedAt)}</span>
               </p>
               {actor && (
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-stone-500">
                   by {actor.name} · {ROLE_LABELS[actor.role]}
                 </p>
               )}
-              {change.note && <p className="mt-1 text-slate-600">{change.note}</p>}
+              {change.note && <p className="mt-1 text-stone-600">{change.note}</p>}
             </div>
           </li>
         );
@@ -103,8 +92,8 @@ export function LoanDetailsModal({ loan, onClose, footer, children }: LoanDetail
             ["Interest", formatCurrency(loan.simpleInterest)],
             ["Total repayment", formatCurrency(loan.totalRepayment)],
           ].map(([label, value]) => (
-            <div key={label} className="rounded-xl bg-cream p-3 ring-1 ring-slate-200/70 ring-inset">
-              <p className="text-xs text-slate-500">{label}</p>
+            <div key={label} className="rounded-xl bg-cream p-3 ring-1 ring-stone-200/70 ring-inset">
+              <p className="text-xs text-stone-500">{label}</p>
               <p className="mt-0.5 font-bold text-black tabular-nums">{value}</p>
             </div>
           ))}
@@ -139,16 +128,16 @@ export function LoanDetailsModal({ loan, onClose, footer, children }: LoanDetail
             href={`/api/loans/${loan._id}/salary-slip`}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-3 rounded-xl p-3 ring-1 ring-slate-200 transition hover:bg-cream hover:ring-brand-300"
+            className="group flex items-center gap-3 rounded-xl p-3 ring-1 ring-stone-200 transition hover:bg-cream hover:ring-brand-300"
           >
             <span className="flex size-10 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
               <FileText className="size-5" />
             </span>
             <span className="min-w-0 flex-1">
               <span className="block truncate text-sm font-semibold text-black">{loan.salarySlip.originalName}</span>
-              <span className="block text-xs text-slate-500">{formatFileSize(loan.salarySlip.size)}</span>
+              <span className="block text-xs text-stone-500">{formatFileSize(loan.salarySlip.size)}</span>
             </span>
-            <ExternalLink className="size-4 text-slate-400 group-hover:text-brand-600" />
+            <ExternalLink className="size-4 text-stone-400 group-hover:text-brand-600" />
           </a>
         </Section>
 

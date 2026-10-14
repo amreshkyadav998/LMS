@@ -1,6 +1,6 @@
 "use client";
 
-import { Banknote, Eye, Send } from "lucide-react";
+import { Banknote, Send } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { DataTable, type Column } from "@/components/dashboard/DataTable";
@@ -49,10 +49,10 @@ function DisburseModal({ loan, onClose, onDisbursed }: { loan: Loan; onClose: ()
       }
     >
       <div className="space-y-5">
-        <div className="rounded-xl border border-slate-200 bg-cream p-5">
-          <p className="text-sm text-slate-500">Amount to release</p>
+        <div className="rounded-xl border border-stone-200 bg-cream p-5">
+          <p className="text-sm text-stone-500">Amount to release</p>
           <p className="mt-1 text-3xl font-bold text-black tabular-nums">{formatCurrency(loan.principal)}</p>
-          <p className="mt-3 text-sm text-slate-500">
+          <p className="mt-3 text-sm text-stone-500">
             to <span className="font-semibold text-black">{loan.applicant.fullName}</span> · PAN {loan.applicant.pan}
           </p>
         </div>
@@ -81,10 +81,11 @@ export function DisbursementModule() {
     { header: "Sanctioned on", cell: (loan) => (loan.sanctionedAt ? formatDate(loan.sanctionedAt) : "—") },
     {
       header: "Actions",
+      isAction: true,
       className: "text-right",
       cell: (loan) => (
         <div className="flex justify-end gap-2">
-          <Button variant="secondary" size="sm" icon={<Eye className="size-3.5" />} onClick={() => setSelected(loan)}>
+          <Button variant="secondary" size="sm" onClick={() => setSelected(loan)}>
             View
           </Button>
           <Button size="sm" icon={<Send className="size-3.5" />} onClick={() => setDisbursing(loan)}>

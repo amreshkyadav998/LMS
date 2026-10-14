@@ -10,13 +10,13 @@ export function HeroCalculator() {
   const [tenureDays, setTenureDays] = useState(180);
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+    <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-card sm:p-8">
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <p className="text-xs font-semibold tracking-wider text-slate-500 uppercase">Loan calculator</p>
+          <p className="text-xs font-semibold tracking-wider text-stone-500 uppercase">Loan calculator</p>
           <h2 className="mt-1 text-lg font-bold text-black">Plan your repayment</h2>
         </div>
-        <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-600/15">
+        <span className="rounded-full bg-cream px-3 py-1 text-xs font-semibold text-black ring-1 ring-stone-200">
           12% p.a. fixed
         </span>
       </div>

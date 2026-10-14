@@ -24,7 +24,7 @@ function SliderField({ id, label, value, min, max, step, display, minLabel, maxL
   return (
     <div>
       <div className="mb-3 flex items-end justify-between gap-4">
-        <label htmlFor={id} className="text-sm font-medium text-slate-600">
+        <label htmlFor={id} className="text-sm font-medium text-stone-600">
           {label}
         </label>
         <span className="rounded-lg bg-brand-50 px-3 py-1 text-base font-bold text-brand-700 tabular-nums">{display}</span>
@@ -40,7 +40,7 @@ function SliderField({ id, label, value, min, max, step, display, minLabel, maxL
         className="range-slider"
         style={{ "--fill": `${fill}%` } as CSSProperties}
       />
-      <div className="mt-2 flex justify-between text-xs font-medium text-slate-400">
+      <div className="mt-2 flex justify-between text-xs font-medium text-stone-400">
         <span>{minLabel}</span>
         <span>{maxLabel}</span>
       </div>
@@ -89,7 +89,7 @@ export function LoanSliders({ principal, tenureDays, onPrincipalChange, onTenure
 function SummaryRow({ label, value }: { label: string; value: ReactNode }) {
   return (
     <div className="flex items-center justify-between gap-4 py-2.5 text-sm">
-      <span className="text-slate-500">{label}</span>
+      <span className="text-stone-500">{label}</span>
       <span className="font-semibold text-black tabular-nums">{value}</span>
     </div>
   );
@@ -100,18 +100,18 @@ export function QuoteSummary({ principal, tenureDays }: { principal: number; ten
   const quote = calculateLoanQuote(principal, tenureDays);
 
   return (
-    <div className="rounded-2xl bg-cream p-5 ring-1 ring-slate-200/70 ring-inset">
-      <div className="divide-y divide-slate-200/70">
+    <div className="rounded-2xl bg-cream p-5 ring-1 ring-stone-200/70 ring-inset">
+      <div className="divide-y divide-stone-200/70">
         <SummaryRow label="Principal amount" value={formatCurrency(quote.principal)} />
         <SummaryRow label="Interest rate" value={`${quote.interestRate}% p.a. (simple)`} />
         <SummaryRow label="Tenure" value={`${quote.tenureDays} days`} />
         <SummaryRow label="Interest payable" value={formatCurrency(quote.simpleInterest)} />
       </div>
-      <div className="mt-3 flex items-center justify-between gap-4 rounded-xl bg-white px-4 py-3.5 shadow-sm ring-1 ring-slate-200/70">
-        <span className="text-sm font-semibold text-slate-700">Total repayment</span>
-        <span className="text-xl font-bold text-brand-700 tabular-nums">{formatCurrency(quote.totalRepayment)}</span>
+      <div className="mt-3 flex items-center justify-between gap-4 rounded-xl bg-white px-4 py-3.5 shadow-sm ring-1 ring-stone-200/70">
+        <span className="text-sm font-semibold whitespace-nowrap text-stone-700">Total repayment</span>
+        <span className="text-lg font-bold whitespace-nowrap text-brand-700 tabular-nums sm:text-xl">{formatCurrency(quote.totalRepayment)}</span>
       </div>
-      <p className="mt-3 text-center text-[11px] text-slate-400">
+      <p className="mt-3 text-center text-[11px] text-stone-400">
         SI = (P × R × T) / (365 × 100) · T = tenure in days
       </p>
     </div>

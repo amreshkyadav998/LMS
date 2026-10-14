@@ -21,35 +21,35 @@ export function UserMenu() {
     return () => document.removeEventListener("mousedown", close);
   }, [open]);
 
-  if (!user) return <div className="size-9 animate-pulse rounded-full bg-slate-200" />;
+  if (!user) return <div className="size-9 animate-pulse rounded-full bg-stone-200" />;
 
   return (
     <div ref={containerRef} className="relative">
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className="flex items-center gap-2.5 rounded-xl p-1 pr-2 transition hover:bg-slate-100"
+        className="flex items-center gap-2.5 rounded-xl p-1 pr-2 transition hover:bg-stone-100"
         aria-expanded={open}
         aria-haspopup="menu"
       >
         <Avatar name={user.name} />
         <span className="hidden text-left sm:block">
           <span className="block text-sm leading-tight font-semibold text-black">{user.name}</span>
-          <span className="block text-xs leading-tight text-slate-500">{ROLE_LABELS[user.role]}</span>
+          <span className="block text-xs leading-tight text-stone-500">{ROLE_LABELS[user.role]}</span>
         </span>
-        <ChevronDown className={cn("hidden size-4 text-slate-400 transition-transform sm:block", open && "rotate-180")} />
+        <ChevronDown className={cn("hidden size-4 text-stone-400 transition-transform sm:block", open && "rotate-180")} />
       </button>
 
       {open && (
         <div
           role="menu"
-          className="absolute right-0 z-40 mt-2 w-60 animate-scale-in rounded-xl border border-slate-200 bg-white p-1.5 shadow-elevated"
+          className="absolute right-0 z-40 mt-2 w-60 animate-scale-in rounded-xl border border-stone-200 bg-white p-1.5 shadow-elevated"
         >
           <div className="px-3 py-2.5">
             <p className="truncate text-sm font-semibold text-black">{user.name}</p>
-            <p className="truncate text-xs text-slate-500">{user.email}</p>
+            <p className="truncate text-xs text-stone-500">{user.email}</p>
           </div>
-          <div className="my-1 h-px bg-slate-100" />
+          <div className="my-1 h-px bg-stone-100" />
           <button
             type="button"
             role="menuitem"

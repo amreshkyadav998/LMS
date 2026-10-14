@@ -26,17 +26,17 @@ export function DemoAccounts({ onSelect }: { onSelect: (account: DemoAccount) =>
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="mt-8 rounded-2xl border border-dashed border-slate-300 bg-cream">
+    <div className="mt-8 rounded-2xl border border-dashed border-stone-300 bg-cream">
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
         className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left"
         aria-expanded={open}
       >
-        <span className="flex items-center gap-2 text-sm font-semibold text-slate-700">
+        <span className="flex items-center gap-2 text-sm font-semibold text-stone-700">
           <KeyRound className="size-4 text-brand-600" /> Demo accounts
         </span>
-        <ChevronDown className={cn("size-4 text-slate-400 transition-transform", open && "rotate-180")} />
+        <ChevronDown className={cn("size-4 text-stone-400 transition-transform", open && "rotate-180")} />
       </button>
       {open && (
         <div className="grid gap-2 px-3 pb-3 sm:grid-cols-2">
@@ -45,10 +45,10 @@ export function DemoAccounts({ onSelect }: { onSelect: (account: DemoAccount) =>
               key={account.role}
               type="button"
               onClick={() => onSelect(account)}
-              className="rounded-xl bg-white px-3 py-2.5 text-left ring-1 ring-slate-200 transition hover:ring-brand-300 hover:shadow-sm"
+              className="rounded-xl bg-white px-3 py-2.5 text-left ring-1 ring-stone-200 transition hover:ring-brand-300 hover:shadow-sm"
             >
               <span className="block text-xs font-semibold text-black">{ROLE_LABELS[account.role]}</span>
-              <span className="block truncate text-xs text-slate-500">{account.email}</span>
+              <span className="block truncate text-xs text-stone-500">{account.email}</span>
             </button>
           ))}
         </div>

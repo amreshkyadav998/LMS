@@ -8,7 +8,6 @@ import { DataTable, type Column } from "@/components/dashboard/DataTable";
 import { ApplicantCell, LoanDetailsModal } from "@/components/dashboard/LoanDetails";
 import { PageHeader } from "@/components/dashboard/PageHeader";
 import { Alert } from "@/components/ui/Alert";
-import { LoanStatusBadge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card, CardHeader } from "@/components/ui/Card";
 import { Field, Input } from "@/components/ui/Field";
@@ -80,7 +79,7 @@ function RecordPaymentForm({ loan, onRecorded }: { loan: Loan; onRecorded: () =>
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="rounded-2xl bg-cream p-4 ring-1 ring-slate-200/70 ring-inset sm:p-5">
+    <form onSubmit={handleSubmit} noValidate className="rounded-2xl bg-cream p-4 ring-1 ring-stone-200/70 ring-inset sm:p-5">
       <h3 className="mb-4 text-sm font-semibold text-black">Record a payment</h3>
       {errors.form && <Alert tone="error" className="mb-4">{errors.form}</Alert>}
       <div className="grid gap-4 sm:grid-cols-3">
@@ -157,19 +156,19 @@ function PaymentHistory({ loanId }: { loanId: string }) {
           <Spinner />
         </div>
       ) : !data?.payments.length ? (
-        <p className="rounded-xl bg-cream px-4 py-6 text-center text-sm text-slate-500">No payments recorded yet.</p>
+        <p className="rounded-xl bg-cream px-4 py-6 text-center text-sm text-stone-500">No payments recorded yet.</p>
       ) : (
-        <ul className="divide-y divide-slate-100 rounded-xl ring-1 ring-slate-200">
+        <ul className="divide-y divide-stone-100 rounded-xl ring-1 ring-stone-200">
           {data.payments.map((payment) => (
             <li key={payment._id} className="flex items-center justify-between gap-4 px-4 py-3">
               <div className="min-w-0">
                 <p className="truncate font-mono text-sm font-semibold text-black">{payment.utr}</p>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-stone-500">
                   {formatDate(payment.paymentDate)}
                   {payment.recordedBy && ` · recorded by ${payment.recordedBy.name}`}
                 </p>
               </div>
-              <span className="font-semibold text-emerald-600 tabular-nums">+{formatCurrency(payment.amount)}</span>
+              <span className="font-semibold whitespace-nowrap text-emerald-600 tabular-nums">+{formatCurrency(payment.amount)}</span>
             </li>
           ))}
         </ul>
@@ -181,23 +180,23 @@ function PaymentHistory({ loanId }: { loanId: string }) {
 function RepaymentSummary({ loan }: { loan: Loan }) {
   const percent = (loan.amountPaid / loan.totalRepayment) * 100;
   return (
-    <div className="rounded-2xl p-4 ring-1 ring-slate-200 sm:p-5">
+    <div className="rounded-2xl p-4 ring-1 ring-stone-200 sm:p-5">
       <div className="grid grid-cols-3 gap-4 text-sm">
         <div>
-          <p className="text-slate-500">Total due</p>
+          <p className="text-stone-500">Total due</p>
           <p className="mt-0.5 font-bold text-black tabular-nums">{formatCurrency(loan.totalRepayment)}</p>
         </div>
         <div>
-          <p className="text-slate-500">Paid</p>
+          <p className="text-stone-500">Paid</p>
           <p className="mt-0.5 font-bold text-emerald-600 tabular-nums">{formatCurrency(loan.amountPaid)}</p>
         </div>
         <div>
-          <p className="text-slate-500">Outstanding</p>
+          <p className="text-stone-500">Outstanding</p>
           <p className="mt-0.5 font-bold text-black tabular-nums">{formatCurrency(loan.outstandingAmount)}</p>
         </div>
       </div>
       <ProgressBar value={percent} className="mt-4" />
-      <p className="mt-2 text-xs text-slate-500">{Math.floor(percent)}% repaid</p>
+      <p className="mt-2 text-xs text-stone-500">{Math.floor(percent)}% repaid</p>
     </div>
   );
 }
@@ -239,14 +238,13 @@ export function CollectionModule() {
   const columns: Column<Loan>[] = [
     { header: "Borrower", cell: (loan) => <ApplicantCell loan={loan} /> },
     { header: "Disbursed on", cell: (loan) => (loan.disbursedAt ? formatDate(loan.disbursedAt) : "—") },
-    { header: "Total due", cell: (loan) => formatCurrency(loan.totalRepayment) },
     {
       header: "Repayment",
       cell: (loan) => (
-        <div className="w-40">
+        <div className="w-36 max-w-full">
           <div className="mb-1.5 flex justify-between text-xs">
             <span className="font-semibold text-emerald-600">{formatCurrency(loan.amountPaid)}</span>
-            <span className="text-slate-400">{Math.floor((loan.amountPaid / loan.totalRepayment) * 100)}%</span>
+            <span className="text-stone-400">{Math.floor((loan.amountPaid / loan.totalRepayment) * 100)}%</span>
           </div>
           <ProgressBar value={(loan.amountPaid / loan.totalRepayment) * 100} className="h-1.5" />
         </div>
@@ -254,11 +252,16 @@ export function CollectionModule() {
     },
     {
       header: "Outstanding",
-      cell: (loan) => <span className="font-semibold text-black">{formatCurrency(loan.outstandingAmount)}</span>,
+      cell: (loan) => (
+        <div>
+          <p className="font-semibold text-black">{formatCurrency(loan.outstandingAmount)}</p>
+          <p className="text-xs text-stone-500">of {formatCurrency(loan.totalRepayment)}</p>
+        </div>
+      ),
     },
-    { header: "Status", cell: (loan) => <LoanStatusBadge status={loan.status} /> },
     {
       header: "Actions",
+      isAction: true,
       className: "text-right",
       cell: (loan) =>
         loan.status === "DISBURSED" ? (

@@ -29,22 +29,22 @@ function ActiveLoanCard({ loan }: { loan: Loan }) {
 
   return (
     <Card className="overflow-hidden">
-      <div className="border-b border-slate-100 px-5 py-5 sm:px-6">
+      <div className="border-b border-stone-100 px-5 py-5 sm:px-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="text-xs font-semibold tracking-wider text-slate-500 uppercase">Current loan</p>
+            <p className="text-xs font-semibold tracking-wider text-stone-500 uppercase">Current loan</p>
             <p className="mt-1 text-3xl font-bold tracking-tight text-black tabular-nums">
               {formatCurrency(loan.principal)}
             </p>
           </div>
           <LoanStatusBadge status={loan.status} className="px-3 py-1 text-sm" />
         </div>
-        <p className="mt-2 text-sm text-slate-600">{STATUS_MESSAGES[loan.status]}</p>
+        <p className="mt-2 text-sm text-stone-600">{STATUS_MESSAGES[loan.status]}</p>
       </div>
       <CardBody className="space-y-8">
         <LoanProgress loan={loan} />
         <DetailList
-          className="sm:grid-cols-4"
+          className="grid-cols-2 sm:grid-cols-4"
           items={[
             { label: "Tenure", value: `${loan.tenureDays} days` },
             { label: "Interest rate", value: `${loan.interestRate}% p.a.` },
@@ -53,12 +53,12 @@ function ActiveLoanCard({ loan }: { loan: Loan }) {
           ]}
         />
         {loan.status === "DISBURSED" && (
-          <div className="rounded-xl bg-cream p-4 ring-1 ring-slate-200/70 ring-inset">
+          <div className="rounded-xl bg-cream p-4 ring-1 ring-stone-200/70 ring-inset">
             <div className="mb-2 flex items-center justify-between text-sm">
-              <span className="font-medium text-slate-600">
+              <span className="font-medium text-stone-600">
                 Repaid <span className="font-semibold text-black">{formatCurrency(loan.amountPaid)}</span>
               </span>
-              <span className="font-medium text-slate-600">
+              <span className="font-medium text-stone-600">
                 Outstanding{" "}
                 <span className="font-semibold text-black">{formatCurrency(loan.outstandingAmount)}</span>
               </span>
@@ -76,14 +76,14 @@ function StartApplicationCard({ hasProfile, hasPastLoans }: { hasProfile: boolea
     <Card>
       <CardBody className="flex flex-col items-start gap-6 py-8 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-start gap-4">
-          <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700 ring-1 ring-brand-100">
+          <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-cream text-black ring-1 ring-stone-200">
             <FileText className="size-6" />
           </span>
           <div>
             <h2 className="text-lg font-semibold text-black">
               {hasProfile ? "Continue your loan application" : hasPastLoans ? "Apply for a new loan" : "Apply for your first loan"}
             </h2>
-            <p className="mt-1 max-w-md text-sm text-slate-500">
+            <p className="mt-1 max-w-md text-sm text-stone-500">
               Get from ₹50,000 up to ₹5,00,000 at a flat 12% p.a., with tenures from 30 to 365 days.
             </p>
           </div>
@@ -124,7 +124,7 @@ function LoanHistory({ loans }: { loans: Loan[] }) {
                 <TD>
                   <LoanStatusBadge status={loan.status} />
                 </TD>
-                <TD className="max-w-xs truncate text-slate-500" title={loan.rejectionReason}>
+                <TD className="max-w-xs truncate text-stone-500" title={loan.rejectionReason}>
                   {loan.rejectionReason ?? (loan.closedAt ? `Closed on ${formatDate(loan.closedAt)}` : "—")}
                 </TD>
               </TR>
@@ -153,7 +153,7 @@ export function PortalOverview() {
         <h1 className="text-2xl font-bold tracking-tight text-black sm:text-3xl">
           Welcome{user ? `, ${user.name.split(" ")[0]}` : ""}
         </h1>
-        <p className="mt-1 text-slate-500">Here’s an overview of your loans.</p>
+        <p className="mt-1 text-stone-500">Here’s an overview of your loans.</p>
       </div>
 
       {data.activeLoan ? (

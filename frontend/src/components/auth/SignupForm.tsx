@@ -53,7 +53,7 @@ export function SignupForm() {
   return (
     <div>
       <h1 className="text-2xl font-bold tracking-tight text-black sm:text-3xl">Create your account</h1>
-      <p className="mt-2 text-sm text-slate-500">Start your loan application in just a few minutes.</p>
+      <p className="mt-2 text-sm text-stone-500">Start your loan application in just a few minutes.</p>
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-5" noValidate>
         <Field label="Full name" htmlFor="name" error={errors.name}>
@@ -102,7 +102,7 @@ export function SignupForm() {
         </Button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-slate-500">
+      <p className="mt-6 text-center text-sm text-stone-500">
         Already have an account?{" "}
         <Link href="/login" className="font-semibold text-brand-600 hover:text-brand-700">
           Log in

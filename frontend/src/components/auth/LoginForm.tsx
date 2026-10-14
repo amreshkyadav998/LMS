@@ -42,7 +42,7 @@ export function LoginForm() {
   return (
     <div>
       <h1 className="text-2xl font-bold tracking-tight text-black sm:text-3xl">Welcome back</h1>
-      <p className="mt-2 text-sm text-slate-500">Log in to continue to your account.</p>
+      <p className="mt-2 text-sm text-stone-500">Log in to continue to your account.</p>
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-5" noValidate>
         <Field label="Email address" htmlFor="email">
@@ -71,7 +71,7 @@ export function LoginForm() {
               <button
                 type="button"
                 onClick={() => setShowPassword((value) => !value)}
-                className="rounded p-1 text-slate-400 hover:text-slate-600"
+                className="rounded p-1 text-stone-400 hover:text-stone-600"
                 aria-label={showPassword ? "Hide password" : "Show password"}
               >
                 {showPassword ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
@@ -85,7 +85,7 @@ export function LoginForm() {
         </Button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-slate-500">
+      <p className="mt-6 text-center text-sm text-stone-500">
         New to LoanFlow?{" "}
         <Link href="/signup" className="font-semibold text-brand-600 hover:text-brand-700">
           Create an account
