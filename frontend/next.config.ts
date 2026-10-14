@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
-const API_URL = process.env.API_URL ?? "http://localhost:5000";
+// Strip trailing slashes so "https://host/" does not produce "//api" paths.
+const API_URL = (process.env.API_URL ?? "http://localhost:5000").replace(/\/+$/, "");
 
 const nextConfig: NextConfig = {
   // The browser only ever talks to this origin; /api/* is proxied to the Express
