@@ -48,7 +48,7 @@ export function Modal({ open, onClose, title, description, footer, size = "md", 
       >
         <div className="flex items-start justify-between gap-4 border-b border-slate-100 px-5 py-4 sm:px-6">
           <div className="min-w-0">
-            <h2 id={titleId} className="text-lg font-semibold text-slate-900">
+            <h2 id={titleId} className="text-lg font-semibold text-black">
               {title}
             </h2>
             {description && <p className="mt-0.5 text-sm text-slate-500">{description}</p>}
@@ -64,7 +64,7 @@ export function Modal({ open, onClose, title, description, footer, size = "md", 
         </div>
         <div className="overflow-y-auto px-5 py-5 sm:px-6">{children}</div>
         {footer && (
-          <div className="flex flex-col-reverse gap-2 border-t border-slate-100 bg-slate-50/60 px-5 py-4 sm:flex-row sm:justify-end sm:px-6">
+          <div className="flex flex-col-reverse gap-2 border-t border-slate-100 bg-cream px-5 py-4 sm:flex-row sm:justify-end sm:px-6">
             {footer}
           </div>
         )}

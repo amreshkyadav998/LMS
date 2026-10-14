@@ -16,7 +16,7 @@ export function ApplicantCell({ loan }: { loan: Loan }) {
     <div className="flex items-center gap-3">
       <Avatar name={loan.applicant.fullName} className="size-8 text-[11px]" />
       <div className="min-w-0">
-        <p className="truncate font-semibold text-slate-900">{loan.applicant.fullName}</p>
+        <p className="truncate font-semibold text-black">{loan.applicant.fullName}</p>
         <p className="truncate text-xs text-slate-500">{loan.borrower?.email}</p>
       </div>
     </div>
@@ -26,7 +26,7 @@ export function ApplicantCell({ loan }: { loan: Loan }) {
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section>
-      <h3 className="mb-3 text-sm font-semibold text-slate-900">{title}</h3>
+      <h3 className="mb-3 text-sm font-semibold text-black">{title}</h3>
       {children}
     </section>
   );
@@ -52,7 +52,7 @@ function StatusTimeline({ loan }: { loan: Loan }) {
           <li key={`${change.status}-${index}`} className="relative flex gap-3">
             <span className={cn("mt-1.5 size-2.5 shrink-0 rounded-full", DOT_CLASSES[LOAN_STATUS_TONES[change.status]])} />
             <div className="min-w-0 text-sm">
-              <p className="font-semibold text-slate-900">
+              <p className="font-semibold text-black">
                 {LOAN_STATUS_LABELS[change.status]}
                 <span className="ml-2 font-normal text-slate-400">{formatDateTime(change.changedAt)}</span>
               </p>
@@ -103,9 +103,9 @@ export function LoanDetailsModal({ loan, onClose, footer, children }: LoanDetail
             ["Interest", formatCurrency(loan.simpleInterest)],
             ["Total repayment", formatCurrency(loan.totalRepayment)],
           ].map(([label, value]) => (
-            <div key={label} className="rounded-xl bg-slate-50 p-3 ring-1 ring-slate-200/70 ring-inset">
+            <div key={label} className="rounded-xl bg-cream p-3 ring-1 ring-slate-200/70 ring-inset">
               <p className="text-xs text-slate-500">{label}</p>
-              <p className="mt-0.5 font-bold text-slate-900 tabular-nums">{value}</p>
+              <p className="mt-0.5 font-bold text-black tabular-nums">{value}</p>
             </div>
           ))}
         </div>
@@ -139,13 +139,13 @@ export function LoanDetailsModal({ loan, onClose, footer, children }: LoanDetail
             href={`/api/loans/${loan._id}/salary-slip`}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-3 rounded-xl p-3 ring-1 ring-slate-200 transition hover:bg-slate-50 hover:ring-brand-300"
+            className="group flex items-center gap-3 rounded-xl p-3 ring-1 ring-slate-200 transition hover:bg-cream hover:ring-brand-300"
           >
             <span className="flex size-10 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
               <FileText className="size-5" />
             </span>
             <span className="min-w-0 flex-1">
-              <span className="block truncate text-sm font-semibold text-slate-900">{loan.salarySlip.originalName}</span>
+              <span className="block truncate text-sm font-semibold text-black">{loan.salarySlip.originalName}</span>
               <span className="block text-xs text-slate-500">{formatFileSize(loan.salarySlip.size)}</span>
             </span>
             <ExternalLink className="size-4 text-slate-400 group-hover:text-brand-600" />

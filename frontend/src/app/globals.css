@@ -3,6 +3,8 @@
 @theme {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
+  --color-cream: #fffdf2;
+
   --color-brand-50: #eff5ff;
   --color-brand-100: #dce8fd;
   --color-brand-200: #bed3fa;
@@ -38,7 +40,7 @@
   }
 
   body {
-    @apply bg-slate-50 text-slate-900 antialiased;
+    @apply bg-cream text-black antialiased;
     font-feature-settings: "cv11", "ss01";
   }
 

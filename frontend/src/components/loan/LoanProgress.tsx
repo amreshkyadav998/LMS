@@ -45,7 +45,7 @@ export function LoanProgress({ loan }: { loan: Loan }) {
               >
                 {isRejectedStep ? <X className="size-4" /> : done ? <Check className="size-4" /> : index + 1}
               </span>
-              <span className={cn("mt-2 text-xs font-semibold", done ? "text-slate-900" : "text-slate-400")}>
+              <span className={cn("mt-2 text-xs font-semibold", done ? "text-black" : "text-slate-400")}>
                 {step.label}
               </span>
               <span className="text-[11px] whitespace-nowrap text-slate-400">{date && done ? formatDate(date) : "—"}</span>

@@ -42,13 +42,13 @@ function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
                 onClick={onNavigate}
                 className={cn(
                   "group flex items-center gap-3 rounded-xl px-3 py-2.5 transition",
-                  active ? "bg-brand-50 text-brand-700" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
+                  active ? "bg-brand-50 text-brand-700" : "text-slate-600 hover:bg-slate-100 hover:text-black",
                 )}
               >
                 <span
                   className={cn(
                     "flex size-8 items-center justify-center rounded-lg transition",
-                    active ? "bg-brand-600 text-white" : "bg-slate-100 text-slate-500 group-hover:bg-white",
+                    active ? "bg-brand-600 text-white" : "bg-black/5 text-slate-600 group-hover:bg-white",
                   )}
                 >
                   <Icon className="size-4" />
@@ -66,9 +66,9 @@ function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
       </div>
       {user && (
         <div className="mt-auto p-4">
-          <div className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3">
+          <div className="rounded-lg border border-slate-200 bg-white px-4 py-3">
             <p className="text-xs text-slate-500">Signed in as</p>
-            <p className="mt-0.5 text-sm font-semibold text-slate-900">{ROLE_LABELS[user.role]}</p>
+            <p className="mt-0.5 text-sm font-semibold text-black">{ROLE_LABELS[user.role]}</p>
           </div>
         </div>
       )}
@@ -81,14 +81,14 @@ export function DashboardShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen">
-      <aside className="fixed inset-y-0 left-0 z-30 hidden w-72 border-r border-slate-200/80 bg-white lg:block">
+      <aside className="fixed inset-y-0 left-0 z-30 hidden w-72 border-r border-slate-200/80 bg-cream lg:block">
         <SidebarNav />
       </aside>
 
       {mobileOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div className="absolute inset-0 animate-fade-in bg-slate-950/40" onClick={() => setMobileOpen(false)} />
-          <aside className="relative h-full w-72 animate-scale-in bg-white shadow-elevated">
+          <aside className="relative h-full w-72 animate-scale-in bg-cream shadow-elevated">
             <button
               type="button"
               onClick={() => setMobileOpen(false)}
@@ -103,7 +103,7 @@ export function DashboardShell({ children }: { children: ReactNode }) {
       )}
 
       <div className="lg:pl-72">
-        <header className="sticky top-0 z-20 flex h-16 items-center justify-between gap-4 border-b border-slate-200/80 bg-white/85 px-4 backdrop-blur-md sm:px-6 lg:px-8">
+        <header className="sticky top-0 z-20 flex h-16 items-center justify-between gap-4 border-b border-slate-200/80 bg-cream/90 px-4 backdrop-blur-md sm:px-6 lg:px-8">
           <button
             type="button"
             onClick={() => setMobileOpen(true)}

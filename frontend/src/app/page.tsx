@@ -36,12 +36,12 @@ const CRITERIA = [
 export default function HomePage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-30 border-b border-slate-200/70 bg-white/80 backdrop-blur-md">
+      <header className="sticky top-0 z-30 border-b border-slate-200/70 bg-cream/90 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Logo />
           <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
-            <a href="#how-it-works" className="transition hover:text-slate-900">How it works</a>
-            <a href="#eligibility" className="transition hover:text-slate-900">Eligibility</a>
+            <a href="#how-it-works" className="transition hover:text-black">How it works</a>
+            <a href="#eligibility" className="transition hover:text-black">Eligibility</a>
           </nav>
           <div className="flex items-center gap-2">
             <ButtonLink href="/login" variant="ghost">Log in</ButtonLink>
@@ -52,7 +52,7 @@ export default function HomePage() {
 
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative isolate overflow-hidden bg-slate-50">
+        <section className="relative isolate overflow-hidden bg-cream">
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgb(15_23_42/0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgb(15_23_42/0.04)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]" />
 
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-24">
@@ -60,9 +60,9 @@ export default function HomePage() {
               <span className="inline-flex items-center gap-2 rounded-md bg-white px-3 py-1 text-xs font-semibold text-slate-600 ring-1 ring-slate-200">
                 <ShieldCheck className="size-3.5" /> Transparent pricing · No hidden charges
               </span>
-              <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+              <h1 className="mt-6 text-4xl font-bold tracking-tight text-black sm:text-5xl">
                 Personal loans,{" "}
-                <span className="text-brand-700">
+                <span>
                   approved in minutes
                 </span>
               </h1>
@@ -83,7 +83,7 @@ export default function HomePage() {
                   <div key={label} className="rounded-xl bg-white p-4 ring-1 ring-slate-200">
                     <Icon className="size-5 text-brand-600" />
                     <dt className="mt-3 text-xs font-medium text-slate-500">{label}</dt>
-                    <dd className="mt-0.5 text-sm font-bold text-slate-900">{value}</dd>
+                    <dd className="mt-0.5 text-sm font-bold text-black">{value}</dd>
                   </div>
                 ))}
               </dl>
@@ -93,11 +93,11 @@ export default function HomePage() {
         </section>
 
         {/* How it works */}
-        <section id="how-it-works" className="scroll-mt-16 border-t border-slate-200/70 bg-white py-20">
+        <section id="how-it-works" className="scroll-mt-16 border-t border-slate-200/70 py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
-              <p className="text-sm font-semibold text-brand-600">How it works</p>
-              <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900">Four simple steps to your loan</h2>
+              <p className="text-sm font-semibold text-slate-500">How it works</p>
+              <h2 className="mt-2 text-3xl font-bold tracking-tight text-black">Four simple steps to your loan</h2>
               <p className="mt-3 text-slate-600">A fully digital journey — no paperwork, no branch visits.</p>
             </div>
             <ol className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -107,7 +107,7 @@ export default function HomePage() {
                     <Icon className="size-5" />
                   </span>
                   <p className="mt-5 text-xs font-semibold text-slate-400">Step {index + 1}</p>
-                  <h3 className="mt-1 font-semibold text-slate-900">{title}</h3>
+                  <h3 className="mt-1 font-semibold text-black">{title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{text}</p>
                 </li>
               ))}
@@ -118,7 +118,7 @@ export default function HomePage() {
         {/* Eligibility */}
         <section id="eligibility" className="scroll-mt-16 py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="rounded-2xl bg-brand-950 px-6 py-12 sm:px-12 lg:flex lg:items-center lg:justify-between lg:gap-12">
+            <div className="rounded-2xl bg-black px-6 py-12 sm:px-12 lg:flex lg:items-center lg:justify-between lg:gap-12">
               <div className="relative max-w-xl">
                 <h2 className="text-3xl font-bold tracking-tight text-white">Who can apply?</h2>
                 <p className="mt-3 text-slate-300">
@@ -134,7 +134,7 @@ export default function HomePage() {
                 </ul>
               </div>
               <div className="relative mt-10 lg:mt-0">
-                <ButtonLink href="/signup" size="lg" className="bg-white text-slate-900 shadow-none hover:bg-slate-100">
+                <ButtonLink href="/signup" size="lg" className="bg-white text-black shadow-none hover:bg-slate-100">
                   Check my eligibility <ArrowRight className="size-4" />
                 </ButtonLink>
               </div>
@@ -143,7 +143,7 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer className="border-t border-slate-200/70 bg-white">
+      <footer className="border-t border-slate-200/70">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-8 text-sm text-slate-500 sm:flex-row sm:px-6 lg:px-8">
           <Logo />
           <p>© {new Date().getFullYear()} LoanFlow. Loan Management System.</p>

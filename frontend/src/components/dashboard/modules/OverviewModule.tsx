@@ -75,7 +75,7 @@ export function OverviewModule() {
                         <LoanStatusBadge status={status} />
                         <span className="hidden text-slate-500 sm:inline">{label}</span>
                       </span>
-                      <span className="flex items-center gap-1 font-bold text-slate-900 tabular-nums">
+                      <span className="flex items-center gap-1 font-bold text-black tabular-nums">
                         {count}
                         {href && (
                           <ArrowRight className="size-3.5 text-slate-300 transition group-hover:translate-x-0.5 group-hover:text-brand-500" />
@@ -91,7 +91,7 @@ export function OverviewModule() {
               return (
                 <li key={status}>
                   {href ? (
-                    <Link href={href} className={cn(rowClasses, "hover:bg-slate-50")}>
+                    <Link href={href} className={cn(rowClasses, "hover:bg-cream")}>
                       {content}
                     </Link>
                   ) : (
@@ -123,7 +123,7 @@ export function OverviewModule() {
                     <TD>
                       <ApplicantCell loan={loan} />
                     </TD>
-                    <TD className="font-semibold text-slate-900">{formatCurrency(loan.principal)}</TD>
+                    <TD className="font-semibold text-black">{formatCurrency(loan.principal)}</TD>
                     <TD>
                       <LoanStatusBadge status={loan.status} />
                     </TD>

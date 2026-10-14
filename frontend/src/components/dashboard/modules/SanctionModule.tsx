@@ -107,7 +107,7 @@ export function SanctionModule() {
       header: "Salary",
       cell: (loan) => (
         <div>
-          <p className="font-medium text-slate-900">{formatCurrency(loan.applicant.monthlySalary)}</p>
+          <p className="font-medium text-black">{formatCurrency(loan.applicant.monthlySalary)}</p>
           <p className="text-xs text-slate-500">{EMPLOYMENT_MODE_LABELS[loan.applicant.employmentMode]}</p>
         </div>
       ),
@@ -116,7 +116,7 @@ export function SanctionModule() {
       header: "Requested",
       cell: (loan) => (
         <div>
-          <p className="font-semibold text-slate-900">{formatCurrency(loan.principal)}</p>
+          <p className="font-semibold text-black">{formatCurrency(loan.principal)}</p>
           <p className="text-xs text-slate-500">{loan.tenureDays} days</p>
         </div>
       ),

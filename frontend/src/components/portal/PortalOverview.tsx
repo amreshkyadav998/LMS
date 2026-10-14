@@ -33,7 +33,7 @@ function ActiveLoanCard({ loan }: { loan: Loan }) {
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <p className="text-xs font-semibold tracking-wider text-slate-500 uppercase">Current loan</p>
-            <p className="mt-1 text-3xl font-bold tracking-tight text-slate-900 tabular-nums">
+            <p className="mt-1 text-3xl font-bold tracking-tight text-black tabular-nums">
               {formatCurrency(loan.principal)}
             </p>
           </div>
@@ -53,14 +53,14 @@ function ActiveLoanCard({ loan }: { loan: Loan }) {
           ]}
         />
         {loan.status === "DISBURSED" && (
-          <div className="rounded-xl bg-slate-50 p-4 ring-1 ring-slate-200/70 ring-inset">
+          <div className="rounded-xl bg-cream p-4 ring-1 ring-slate-200/70 ring-inset">
             <div className="mb-2 flex items-center justify-between text-sm">
               <span className="font-medium text-slate-600">
-                Repaid <span className="font-semibold text-slate-900">{formatCurrency(loan.amountPaid)}</span>
+                Repaid <span className="font-semibold text-black">{formatCurrency(loan.amountPaid)}</span>
               </span>
               <span className="font-medium text-slate-600">
                 Outstanding{" "}
-                <span className="font-semibold text-slate-900">{formatCurrency(loan.outstandingAmount)}</span>
+                <span className="font-semibold text-black">{formatCurrency(loan.outstandingAmount)}</span>
               </span>
             </div>
             <ProgressBar value={repaidPercent} />
@@ -80,7 +80,7 @@ function StartApplicationCard({ hasProfile, hasPastLoans }: { hasProfile: boolea
             <FileText className="size-6" />
           </span>
           <div>
-            <h2 className="text-lg font-semibold text-slate-900">
+            <h2 className="text-lg font-semibold text-black">
               {hasProfile ? "Continue your loan application" : hasPastLoans ? "Apply for a new loan" : "Apply for your first loan"}
             </h2>
             <p className="mt-1 max-w-md text-sm text-slate-500">
@@ -118,7 +118,7 @@ function LoanHistory({ loans }: { loans: Loan[] }) {
             {loans.map((loan) => (
               <TR key={loan._id}>
                 <TD>{formatDate(loan.createdAt)}</TD>
-                <TD className="font-semibold text-slate-900">{formatCurrency(loan.principal)}</TD>
+                <TD className="font-semibold text-black">{formatCurrency(loan.principal)}</TD>
                 <TD>{loan.tenureDays} days</TD>
                 <TD>{formatCurrency(loan.totalRepayment)}</TD>
                 <TD>
@@ -150,7 +150,7 @@ export function PortalOverview() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+        <h1 className="text-2xl font-bold tracking-tight text-black sm:text-3xl">
           Welcome{user ? `, ${user.name.split(" ")[0]}` : ""}
         </h1>
         <p className="mt-1 text-slate-500">Here’s an overview of your loans.</p>

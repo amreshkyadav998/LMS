@@ -41,7 +41,7 @@ export function LoginForm() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Welcome back</h1>
+      <h1 className="text-2xl font-bold tracking-tight text-black sm:text-3xl">Welcome back</h1>
       <p className="mt-2 text-sm text-slate-500">Log in to continue to your account.</p>
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-5" noValidate>

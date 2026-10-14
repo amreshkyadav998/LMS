@@ -27,7 +27,7 @@ export function Stepper({ steps, current }: StepperProps) {
                 {done ? <Check className="size-4" /> : index + 1}
               </span>
               <div className="hidden min-w-0 sm:block">
-                <p className={cn("truncate text-sm font-semibold", done || active ? "text-slate-900" : "text-slate-400")}>
+                <p className={cn("truncate text-sm font-semibold", done || active ? "text-black" : "text-slate-400")}>
                   {step.title}
                 </p>
                 <p className="truncate text-xs text-slate-500">{step.description}</p>

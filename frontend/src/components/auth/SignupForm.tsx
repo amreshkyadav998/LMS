@@ -52,7 +52,7 @@ export function SignupForm() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Create your account</h1>
+      <h1 className="text-2xl font-bold tracking-tight text-black sm:text-3xl">Create your account</h1>
       <p className="mt-2 text-sm text-slate-500">Start your loan application in just a few minutes.</p>
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-5" noValidate>

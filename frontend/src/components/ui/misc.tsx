@@ -35,7 +35,7 @@ export function SearchInput({ className, ...props }: ComponentProps<"input">) {
       <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-slate-400" />
       <input
         type="search"
-        className="h-10 w-full rounded-lg border-0 bg-white pr-3 pl-9 text-sm text-slate-900 shadow-sm ring-1 ring-slate-200 ring-inset placeholder:text-slate-400 focus:ring-2 focus:ring-brand-500 focus:outline-none"
+        className="h-10 w-full rounded-lg border-0 bg-white pr-3 pl-9 text-sm text-black shadow-sm ring-1 ring-slate-200 ring-inset placeholder:text-slate-400 focus:ring-2 focus:ring-brand-500 focus:outline-none"
         {...props}
       />
     </div>
@@ -53,7 +53,7 @@ export function DetailList({ items, className }: { items: DetailItem[]; classNam
       {items.map(({ label, value }) => (
         <div key={label} className="min-w-0">
           <dt className="text-xs font-medium tracking-wide text-slate-500 uppercase">{label}</dt>
-          <dd className="mt-1 truncate text-sm font-medium text-slate-900">{value}</dd>
+          <dd className="mt-1 truncate text-sm font-medium text-black">{value}</dd>
         </div>
       ))}
     </dl>
@@ -78,7 +78,7 @@ export function Tabs<T extends string>({
           onClick={() => onChange(option.value)}
           className={cn(
             "inline-flex items-center gap-2 rounded-lg px-3.5 py-1.5 text-sm font-semibold transition",
-            value === option.value ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700",
+            value === option.value ? "bg-white text-black shadow-sm" : "text-slate-500 hover:text-slate-700",
           )}
         >
           {option.label}

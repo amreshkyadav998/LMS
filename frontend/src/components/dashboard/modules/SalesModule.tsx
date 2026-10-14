@@ -37,7 +37,7 @@ export function SalesModule() {
         <div className="flex items-center gap-3">
           <Avatar name={lead.name} className="size-8 text-[11px]" />
           <div className="min-w-0">
-            <p className="truncate font-semibold text-slate-900">{lead.name}</p>
+            <p className="truncate font-semibold text-black">{lead.name}</p>
             <p className="truncate text-xs text-slate-500">{lead.email}</p>
           </div>
         </div>
@@ -60,7 +60,7 @@ export function SalesModule() {
       cell: (lead) =>
         lead.profile ? (
           <div>
-            <p className="font-medium text-slate-900">{formatCurrency(lead.profile.monthlySalary)}</p>
+            <p className="font-medium text-black">{formatCurrency(lead.profile.monthlySalary)}</p>
             <p className="text-xs text-slate-500">{EMPLOYMENT_MODE_LABELS[lead.profile.employmentMode]}</p>
           </div>
         ) : (

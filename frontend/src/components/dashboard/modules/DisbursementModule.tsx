@@ -49,11 +49,11 @@ function DisburseModal({ loan, onClose, onDisbursed }: { loan: Loan; onClose: ()
       }
     >
       <div className="space-y-5">
-        <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
+        <div className="rounded-xl border border-slate-200 bg-cream p-5">
           <p className="text-sm text-slate-500">Amount to release</p>
-          <p className="mt-1 text-3xl font-bold text-slate-900 tabular-nums">{formatCurrency(loan.principal)}</p>
+          <p className="mt-1 text-3xl font-bold text-black tabular-nums">{formatCurrency(loan.principal)}</p>
           <p className="mt-3 text-sm text-slate-500">
-            to <span className="font-semibold text-slate-900">{loan.applicant.fullName}</span> · PAN {loan.applicant.pan}
+            to <span className="font-semibold text-black">{loan.applicant.fullName}</span> · PAN {loan.applicant.pan}
           </p>
         </div>
         <Alert tone="info">
@@ -74,7 +74,7 @@ export function DisbursementModule() {
     { header: "Applicant", cell: (loan) => <ApplicantCell loan={loan} /> },
     {
       header: "Amount",
-      cell: (loan) => <span className="font-semibold text-slate-900">{formatCurrency(loan.principal)}</span>,
+      cell: (loan) => <span className="font-semibold text-black">{formatCurrency(loan.principal)}</span>,
     },
     { header: "Tenure", cell: (loan) => `${loan.tenureDays} days` },
     { header: "Total repayment", cell: (loan) => formatCurrency(loan.totalRepayment) },

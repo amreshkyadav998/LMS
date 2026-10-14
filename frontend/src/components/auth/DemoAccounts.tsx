@@ -26,7 +26,7 @@ export function DemoAccounts({ onSelect }: { onSelect: (account: DemoAccount) =>
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="mt-8 rounded-2xl border border-dashed border-slate-300 bg-slate-50/70">
+    <div className="mt-8 rounded-2xl border border-dashed border-slate-300 bg-cream">
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
@@ -47,7 +47,7 @@ export function DemoAccounts({ onSelect }: { onSelect: (account: DemoAccount) =>
               onClick={() => onSelect(account)}
               className="rounded-xl bg-white px-3 py-2.5 text-left ring-1 ring-slate-200 transition hover:ring-brand-300 hover:shadow-sm"
             >
-              <span className="block text-xs font-semibold text-slate-900">{ROLE_LABELS[account.role]}</span>
+              <span className="block text-xs font-semibold text-black">{ROLE_LABELS[account.role]}</span>
               <span className="block truncate text-xs text-slate-500">{account.email}</span>
             </button>
           ))}

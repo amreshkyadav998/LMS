@@ -80,8 +80,8 @@ function RecordPaymentForm({ loan, onRecorded }: { loan: Loan; onRecorded: () =>
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-200/70 ring-inset sm:p-5">
-      <h3 className="mb-4 text-sm font-semibold text-slate-900">Record a payment</h3>
+    <form onSubmit={handleSubmit} noValidate className="rounded-2xl bg-cream p-4 ring-1 ring-slate-200/70 ring-inset sm:p-5">
+      <h3 className="mb-4 text-sm font-semibold text-black">Record a payment</h3>
       {errors.form && <Alert tone="error" className="mb-4">{errors.form}</Alert>}
       <div className="grid gap-4 sm:grid-cols-3">
         <Field label="UTR number" htmlFor="utr" error={errors.utr}>
@@ -151,19 +151,19 @@ function PaymentHistory({ loanId }: { loanId: string }) {
 
   return (
     <section>
-      <h3 className="mb-3 text-sm font-semibold text-slate-900">Payment history</h3>
+      <h3 className="mb-3 text-sm font-semibold text-black">Payment history</h3>
       {isLoading ? (
         <div className="flex justify-center py-6 text-brand-600">
           <Spinner />
         </div>
       ) : !data?.payments.length ? (
-        <p className="rounded-xl bg-slate-50 px-4 py-6 text-center text-sm text-slate-500">No payments recorded yet.</p>
+        <p className="rounded-xl bg-cream px-4 py-6 text-center text-sm text-slate-500">No payments recorded yet.</p>
       ) : (
         <ul className="divide-y divide-slate-100 rounded-xl ring-1 ring-slate-200">
           {data.payments.map((payment) => (
             <li key={payment._id} className="flex items-center justify-between gap-4 px-4 py-3">
               <div className="min-w-0">
-                <p className="truncate font-mono text-sm font-semibold text-slate-900">{payment.utr}</p>
+                <p className="truncate font-mono text-sm font-semibold text-black">{payment.utr}</p>
                 <p className="text-xs text-slate-500">
                   {formatDate(payment.paymentDate)}
                   {payment.recordedBy && ` · recorded by ${payment.recordedBy.name}`}
@@ -185,7 +185,7 @@ function RepaymentSummary({ loan }: { loan: Loan }) {
       <div className="grid grid-cols-3 gap-4 text-sm">
         <div>
           <p className="text-slate-500">Total due</p>
-          <p className="mt-0.5 font-bold text-slate-900 tabular-nums">{formatCurrency(loan.totalRepayment)}</p>
+          <p className="mt-0.5 font-bold text-black tabular-nums">{formatCurrency(loan.totalRepayment)}</p>
         </div>
         <div>
           <p className="text-slate-500">Paid</p>
@@ -193,7 +193,7 @@ function RepaymentSummary({ loan }: { loan: Loan }) {
         </div>
         <div>
           <p className="text-slate-500">Outstanding</p>
-          <p className="mt-0.5 font-bold text-slate-900 tabular-nums">{formatCurrency(loan.outstandingAmount)}</p>
+          <p className="mt-0.5 font-bold text-black tabular-nums">{formatCurrency(loan.outstandingAmount)}</p>
         </div>
       </div>
       <ProgressBar value={percent} className="mt-4" />
@@ -254,7 +254,7 @@ export function CollectionModule() {
     },
     {
       header: "Outstanding",
-      cell: (loan) => <span className="font-semibold text-slate-900">{formatCurrency(loan.outstandingAmount)}</span>,
+      cell: (loan) => <span className="font-semibold text-black">{formatCurrency(loan.outstandingAmount)}</span>,
     },
     { header: "Status", cell: (loan) => <LoanStatusBadge status={loan.status} /> },
     {

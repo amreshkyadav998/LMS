@@ -34,7 +34,7 @@ export function UserMenu() {
       >
         <Avatar name={user.name} />
         <span className="hidden text-left sm:block">
-          <span className="block text-sm leading-tight font-semibold text-slate-900">{user.name}</span>
+          <span className="block text-sm leading-tight font-semibold text-black">{user.name}</span>
           <span className="block text-xs leading-tight text-slate-500">{ROLE_LABELS[user.role]}</span>
         </span>
         <ChevronDown className={cn("hidden size-4 text-slate-400 transition-transform sm:block", open && "rotate-180")} />
@@ -46,7 +46,7 @@ export function UserMenu() {
           className="absolute right-0 z-40 mt-2 w-60 animate-scale-in rounded-xl border border-slate-200 bg-white p-1.5 shadow-elevated"
         >
           <div className="px-3 py-2.5">
-            <p className="truncate text-sm font-semibold text-slate-900">{user.name}</p>
+            <p className="truncate text-sm font-semibold text-black">{user.name}</p>
             <p className="truncate text-xs text-slate-500">{user.email}</p>
           </div>
           <div className="my-1 h-px bg-slate-100" />

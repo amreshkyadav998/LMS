@@ -81,14 +81,14 @@ export function SalarySlipStep({ profile, onComplete, onBack }: SalarySlipStepPr
         onDrop={handleDrop}
         className={cn(
           "flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed px-6 py-12 text-center transition",
-          dragging ? "border-brand-500 bg-brand-50/60" : "border-slate-300 bg-slate-50/50 hover:border-brand-400 hover:bg-brand-50/30",
+          dragging ? "border-brand-500 bg-brand-50/60" : "border-slate-300 bg-cream hover:border-brand-400 hover:bg-brand-50/30",
           uploading && "pointer-events-none opacity-70",
         )}
       >
         <span className="flex size-14 items-center justify-center rounded-2xl bg-white text-brand-600 shadow-sm ring-1 ring-slate-200">
           {uploading ? <Spinner className="size-6" /> : <UploadCloud className="size-7" />}
         </span>
-        <p className="mt-4 text-sm font-semibold text-slate-900">
+        <p className="mt-4 text-sm font-semibold text-black">
           {uploading ? "Uploading…" : slip ? "Drop a new file to replace" : "Drop your salary slip here"}
         </p>
         <p className="mt-1 text-sm text-slate-500">
@@ -112,7 +112,7 @@ export function SalarySlipStep({ profile, onComplete, onBack }: SalarySlipStepPr
             {slip.mimeType === "application/pdf" ? <FileText className="size-5" /> : <ImageIcon className="size-5" />}
           </span>
           <div className="min-w-0 flex-1">
-            <p className="truncate text-sm font-semibold text-slate-900">{slip.originalName}</p>
+            <p className="truncate text-sm font-semibold text-black">{slip.originalName}</p>
             <p className="text-xs text-slate-500">
               {formatFileSize(slip.size)} · Uploaded {formatDateTime(slip.uploadedAt)}
             </p>

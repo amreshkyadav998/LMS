@@ -10,7 +10,7 @@ export function Table({ className, ...props }: ComponentProps<"table">) {
 }
 
 export function THead({ className, ...props }: ComponentProps<"thead">) {
-  return <thead className={cn("bg-slate-50/80", className)} {...props} />;
+  return <thead className={cn("bg-cream", className)} {...props} />;
 }
 
 export function TBody({ className, ...props }: ComponentProps<"tbody">) {
@@ -18,7 +18,7 @@ export function TBody({ className, ...props }: ComponentProps<"tbody">) {
 }
 
 export function TR({ className, ...props }: ComponentProps<"tr">) {
-  return <tr className={cn("transition-colors hover:bg-slate-50/70", className)} {...props} />;
+  return <tr className={cn("transition-colors hover:bg-cream", className)} {...props} />;
 }
 
 export function TH({ className, ...props }: ComponentProps<"th">) {

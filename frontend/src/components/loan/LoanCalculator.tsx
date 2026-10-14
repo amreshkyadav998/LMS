@@ -90,7 +90,7 @@ function SummaryRow({ label, value }: { label: string; value: ReactNode }) {
   return (
     <div className="flex items-center justify-between gap-4 py-2.5 text-sm">
       <span className="text-slate-500">{label}</span>
-      <span className="font-semibold text-slate-900 tabular-nums">{value}</span>
+      <span className="font-semibold text-black tabular-nums">{value}</span>
     </div>
   );
 }
@@ -100,7 +100,7 @@ export function QuoteSummary({ principal, tenureDays }: { principal: number; ten
   const quote = calculateLoanQuote(principal, tenureDays);
 
   return (
-    <div className="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200/70 ring-inset">
+    <div className="rounded-2xl bg-cream p-5 ring-1 ring-slate-200/70 ring-inset">
       <div className="divide-y divide-slate-200/70">
         <SummaryRow label="Principal amount" value={formatCurrency(quote.principal)} />
         <SummaryRow label="Interest rate" value={`${quote.interestRate}% p.a. (simple)`} />

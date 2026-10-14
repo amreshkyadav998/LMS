@@ -49,7 +49,7 @@ export function LoanConfigStep({ profile, onApplied, onBack }: LoanConfigStepPro
             onPrincipalChange={setPrincipal}
             onTenureChange={setTenureDays}
           />
-          <div className="rounded-xl bg-slate-50 p-4 text-sm ring-1 ring-slate-200/70 ring-inset">
+          <div className="rounded-xl bg-cream p-4 text-sm ring-1 ring-slate-200/70 ring-inset">
             <p className="mb-2 font-semibold text-slate-700">Applying as</p>
             <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-slate-600">
               <span>{profile.fullName}</span>

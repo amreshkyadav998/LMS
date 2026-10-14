@@ -2,9 +2,9 @@ import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 const CONTROL_CLASSES =
-  "block w-full rounded-lg border-0 bg-white px-3.5 text-sm text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 " +
+  "block w-full rounded-lg border-0 bg-white px-3.5 text-sm text-black shadow-sm ring-1 ring-inset ring-slate-200 " +
   "placeholder:text-slate-400 transition-shadow focus:ring-2 focus:ring-inset focus:ring-brand-500 focus:outline-none " +
-  "disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-500";
+  "disabled:cursor-not-allowed disabled:bg-cream disabled:text-slate-500";
 
 const INVALID_CLASSES = "ring-rose-300 focus:ring-rose-500";
 
