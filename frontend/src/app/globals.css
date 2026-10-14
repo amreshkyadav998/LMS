@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #312e81;
+  --color-brand-950: #1e1b4b;
+
+  --shadow-card: 0 1px 2px 0 rgb(15 23 42 / 0.04), 0 1px 3px 0 rgb(15 23 42 / 0.06);
+  --shadow-elevated: 0 10px 30px -12px rgb(15 23 42 / 0.18), 0 4px 10px -6px rgb(15 23 42 / 0.08);
+
+  --animate-fade-in: fade-in 0.2s ease-out;
+  --animate-scale-in: scale-in 0.18s ease-out;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scale-in {
+    from { opacity: 0; transform: translateY(6px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  ::selection {
+    @apply bg-brand-100 text-brand-900;
+  }
+}
+
+/* Range slider, styled consistently across browsers. --fill is set inline (0–100%). */
+@layer components {
+  .range-slider {
+    @apply h-2 w-full cursor-pointer appearance-none rounded-full outline-none;
+    background: linear-gradient(
+      to right,
+      var(--color-brand-600) 0%,
+      var(--color-brand-600) var(--fill, 0%),
+      var(--color-slate-200) var(--fill, 0%),
+      var(--color-slate-200) 100%
+    );
+  }
+
+  .range-slider::-webkit-slider-thumb {
+    @apply h-5 w-5 appearance-none rounded-full border-4 border-white bg-brand-600 transition-transform;
+    box-shadow: 0 0 0 1px var(--color-brand-600), 0 2px 6px rgb(79 70 229 / 0.4);
+  }
+
+  .range-slider::-moz-range-thumb {
+    @apply h-4 w-4 rounded-full border-4 border-white bg-brand-600;
+    box-shadow: 0 0 0 1px var(--color-brand-600), 0 2px 6px rgb(79 70 229 / 0.4);
+  }
+
+  .range-slider:hover::-webkit-slider-thumb,
+  .range-slider:focus-visible::-webkit-slider-thumb {
+    transform: scale(1.12);
+  }
+
+  .range-slider:focus-visible {
+    @apply ring-4 ring-brand-100;
+  }
+}
