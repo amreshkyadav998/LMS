@@ -1,4 +1,5 @@
 import { Check, X } from "lucide-react";
+import { Fragment } from "react";
 import { cn } from "@/lib/cn";
 import { formatDate } from "@/lib/format";
 import type { Loan, LoanStatus } from "@/types";
@@ -18,6 +19,8 @@ export function LoanProgress({ loan }: { loan: Loan }) {
     : HAPPY_PATH;
   const currentIndex = steps.findIndex((step) => step.status === loan.status);
 
+  // Fixed-width steps sit at both edges of the card, with flexible connectors
+  // between them, so the tracker lines up with the content above and below.
   return (
     <ol className="flex w-full items-start">
       {steps.map((step, index) => {
@@ -27,34 +30,36 @@ export function LoanProgress({ loan }: { loan: Loan }) {
         const isLast = index === steps.length - 1;
 
         return (
-          <li key={step.status} className="relative flex flex-1 flex-col items-center">
-            {!isLast && (
+          <Fragment key={step.status}>
+            <li className="flex w-20 shrink-0 flex-col items-center text-center">
               <span
                 className={cn(
-                  "absolute top-4 left-1/2 h-0.5 w-full",
+                  "relative z-10 flex size-8 items-center justify-center rounded-full text-xs font-bold ring-4 ring-white",
+                  isRejectedStep
+                    ? "bg-rose-600 text-white"
+                    : done
+                      ? "bg-brand-600 text-white"
+                      : "bg-slate-100 text-slate-400",
+                  index === currentIndex && !isRejectedStep && loan.status !== "CLOSED" && "ring-brand-100",
+                )}
+              >
+                {isRejectedStep ? <X className="size-4" /> : done ? <Check className="size-4" /> : index + 1}
+              </span>
+              <span className={cn("mt-2 text-xs font-semibold", done ? "text-slate-900" : "text-slate-400")}>
+                {step.label}
+              </span>
+              <span className="text-[11px] whitespace-nowrap text-slate-400">{date && done ? formatDate(date) : "—"}</span>
+            </li>
+            {!isLast && (
+              <li
+                aria-hidden="true"
+                className={cn(
+                  "-mx-6 mt-[15px] h-0.5 flex-1 rounded-full",
                   index < currentIndex ? "bg-brand-600" : "bg-slate-200",
                 )}
-                aria-hidden="true"
               />
             )}
-            <span
-              className={cn(
-                "relative z-10 flex size-8 items-center justify-center rounded-full text-xs font-bold ring-4 ring-white",
-                isRejectedStep
-                  ? "bg-rose-600 text-white"
-                  : done
-                    ? "bg-brand-600 text-white"
-                    : "bg-slate-100 text-slate-400",
-                index === currentIndex && !isRejectedStep && loan.status !== "CLOSED" && "ring-brand-100",
-              )}
-            >
-              {isRejectedStep ? <X className="size-4" /> : done ? <Check className="size-4" /> : index + 1}
-            </span>
-            <span className={cn("mt-2 text-xs font-semibold", done ? "text-slate-900" : "text-slate-400")}>
-              {step.label}
-            </span>
-            <span className="text-[11px] text-slate-400">{date && done ? formatDate(date) : "—"}</span>
-          </li>
+          </Fragment>
         );
       })}
     </ol>
