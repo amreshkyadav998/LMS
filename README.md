@@ -1,5 +1,9 @@
 # LoanFlow — Loan Management System
 
+> 🎥 **Demo video:** [Watch the full walkthrough on Google Drive](https://drive.google.com/file/d/1YUobPn6K69wX3RupQW67gQ04BV-bs2E2/view?usp=sharing)
+>
+> 🌐 **Live app:** [lms-tan-one.vercel.app](https://lms-tan-one.vercel.app) — demo credentials for every role are listed below.
+
 A full-stack lending platform where **borrowers** apply for personal loans through a guided multi-step portal, and **internal teams** move each loan through its lifecycle — *Applied → Sanctioned → Disbursed → Closed* — from a role-based operations dashboard.
 
 | Layer    | Stack                                                       |
